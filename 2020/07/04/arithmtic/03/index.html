@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>一叶知秋的学习课堂</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="一叶知秋的学习课堂">
+  <title>算法03-有效的括号 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 栈 , 最小栈 , Map ">
+  <meta name="description" content="算法03-有效的括号 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
 <meta property="og:type" content="website">
@@ -54,7 +54,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -323,12 +323,73 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-arithmtic/03" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于一叶知秋"><span class="toc-text">关于一叶知秋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">算法03-有效的括号</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="算法">算法</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">栈</a>
+            
+            <a class="color4">最小栈</a>
+            
+            <a class="color4">Map</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-07-04 15:54:01'>2020-07-04 15:44</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
     
 <style>
     .left-col .switch-btn,
@@ -341,37 +402,55 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于一叶知秋"><a href="#关于一叶知秋" class="headerlink" title="关于一叶知秋"></a>关于一叶知秋</h2><p><strong>一叶知秋</strong> 是楼主（chenxianyun）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
+<p>例如下面的输入：<br>{[]}—-&gt;返回true<br>()]—–&gt;返回false<br>{[(]}—-&gt;返回false</p>
+<p>根据题目中所描述的，就拿第一个”{[]}”来说，字符串是否有效取决于刚才入栈的字符是否跟下一个入栈字符构成一对符号，我们只需要先将是{，[，(其中任意一种入栈，如果下一次入栈是”] } )”中的一种，判断栈顶元素的字符是否跟即将入栈的这个字符构成配对关系，这就是核心思想。关于如何匹配字符，我们可以采用map来存储键值对<br>，思路可以见下图<br><img src="https://upload-images.jianshu.io/upload_images/22769532-955bf0c7f3422449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<pre><code class="java">class Solution {
+    public boolean isValid( String s) {
+    HashMap&lt;Character,Character&gt; map = new HashMap&lt;&gt;();
+    //将对应的符号放入map中，前面作为键，后面作为值
+    //注意这里键值对顺序为什么要这样
+    map.put(&#39;)&#39;,&#39;(&#39;);
+    map.put(&#39;}&#39;,&#39;{&#39;);
+    map.put(&#39;]&#39;,&#39;[&#39;);
+    Deque&lt;Character&gt; stack = new ArrayDeque&lt;&gt;();
+//    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
+    if(s.length()==0 || s==null){return true;}
+    for(int i=0;i&lt;s.length();i++){
+      if(s.charAt(i) == &#39;[&#39; || s.charAt(i) == &#39;{&#39; || s.charAt(i) == &#39;(&#39;){
+        stack.push(s.charAt(i));
+      }else if(map.get(s.charAt(i)) == stack.peek()){
+        //如果下次循环的值作为键，得到的值跟栈顶元素相同，就让栈顶元素出栈
+        System.out.println(&quot;栈顶元素为：&quot;+stack.peek());
+        stack.pop();
+      }else{
+        return false;
+      }
+    }
+    return stack.isEmpty();
+  }
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+}</code></pre>
+<p>……………… 这道题目的注意点： ……………………<br>数据结构最好是使用Deque这种类型，类似于栈，但是这个对与stack扩充了一些东西，直接使用原生数据结构stack，直接输入]就会导致栈空，抛出异常，程序就没办法执行下去了，但是程序本身是没有什么问题的，你调用stack.peek()查看栈顶元素就抛出了EmptyStackException,但是Deque封装了一些方法，检查空栈的栈顶元素的时候不会抛异常，会给你返回null。第二个注意点就是map存的键值：我们是通过}  ] ）当做键，[ { (作为值与栈顶元素进行比较。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -393,6 +472,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -401,11 +487,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>一叶知秋的学习课堂</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="一叶知秋的学习课堂">
+  <title>算法01-表达式求值 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 表达式求值 , 操作符，操作数 ">
+  <meta name="description" content="算法01-表达式求值 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
 <meta property="og:type" content="website">
@@ -54,7 +54,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -323,12 +323,71 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-arithmtic/01" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于一叶知秋"><span class="toc-text">关于一叶知秋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">算法01-表达式求值</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="算法">算法</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">表达式求值</a>
+            
+            <a class="color3">操作符，操作数</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-07-04 15:36:22'>2020-07-04 15:34</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改"><span class="toc-text">其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -341,37 +400,223 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于一叶知秋"><a href="#关于一叶知秋" class="headerlink" title="关于一叶知秋"></a>关于一叶知秋</h2><p><strong>一叶知秋</strong> 是楼主（chenxianyun）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>题目给出：本题主要是算法第四版上的一道题目<br>计算(1+((2+3)<em>(4</em>5)))的值</p>
+<p>解析：1.这道题，我们可以看到有操作数和操作符，我们可以利用两个栈来解决这个问题，一个操作数栈，一个操作符栈，分别为opertor,number。2.判断操作数出栈的条件是遇到 “)” 括号，遇到右括号就要进行操作符出栈（这里会遇到弹出的操作符不是我们想要的操作符，而是”(“ 这样我们就要将操作符栈再次出栈），对应的操作数栈相邻的两个操作数出栈，做算术表达式后进行再次入操作数栈。3.当操作数栈为空的时候，最后一次出操作数栈的就是我们计算得到的值。</p>
+<p>直接上代码</p>
+<pre><code class="java">
+package com.cxy.stack;
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+import java.util.Scanner;
+
+import java.util.Stack;
+
+public class ArithmeticExpression {
+
+public static void main(String[] args){
+
+    System.out.println(&quot;请输入一串带（）+数字的算术表达式：例如(1+((2+3)*(4*5)))&quot;);
+
+    Scanner scanner =new Scanner(System.in);
+
+    String input = scanner.nextLine();
+
+    System.out.println(input);
+
+    //操作符栈
+
+    Stack opertor =new Stack&lt;&gt;();
+
+    //操作数栈
+
+    Stack number =new Stack&lt;&gt;();
+
+    //保存最终数据的
+
+    double res =0;
+
+    int index =0;
+
+    int len = input.length();
+
+    while(len&gt;0){
+
+      //index控制表达式的字符位置
+
+      len--;
+
+      //中间临时保存计算值
+
+      String tempOperator =null;
+
+      char ch = input.charAt(index);
+
+      index++;
+
+      if(ch ==&#39;+&#39;|| ch ==&#39;-&#39; || ch ==&#39;*&#39; || ch ==&#39;/&#39; || ch ==&#39;(&#39;){
+
+        //如果是操作符，
+
+        System.out.println(&quot;入操作符栈：&quot;+ch);
+
+        opertor.push(Character.toString(ch));
+
+      }else if(ch !=&#39;)&#39;){
+
+        System.out.println(&quot;入操作数栈：&quot;+ch);
+
+        number.push(Double.parseDouble(Character.toString(ch)));
+
+      }else if(ch ==&#39;)&#39;){
+
+        //遇到右括号，出操作符栈,并执行相应的number出栈
+
+        System.out.println(&quot;遇到右括号&quot;);
+
+        tempOperator = opertor.pop();
+
+        //再出一次操作符栈将（括号去掉
+
+        String leftKuo = opertor.pop();
+
+        System.out.println(&quot;遇到右括号出栈的字符：&quot;+tempOperator);
+
+        System.out.println(&quot;将左括号去电&quot;+leftKuo);
+
+        //出第一个number
+
+//        System.out.println(&quot;操作数右边的数：&quot;+firstNumber);
+
+        if(tempOperator.equals(&quot;+&quot;)){
+
+          double firstNumber = number.pop();
+
+          double lastNumber = number.pop();
+
+          //计算之后将新得到的数字继续入数字栈
+
+          System.out.println(&quot;加号左边出操作数：&quot;+lastNumber);
+
+          number.push(lastNumber+firstNumber);
+
+          System.out.println(&quot;两边相加的操作数入栈：&quot;+lastNumber+firstNumber);
+
+          System.out.println(&quot;相加后的栈长度：&quot;+number.size());
+
+        }else if(tempOperator.equals(&quot;-&quot;)){
+
+          //后出栈的减前面的
+
+          double firstNumber = number.pop();
+
+          number.push(number.pop()-firstNumber);
+
+        }else if(tempOperator.equals(&quot;*&quot;)){
+
+          double firstNumber = number.pop();
+
+          double lastNumber = number.pop();
+
+          System.out.println(&quot;乘号右边&quot;+firstNumber);
+
+          System.out.println(&quot;乘号左边&quot;+lastNumber);
+
+          number.push(lastNumber*firstNumber);
+
+          System.out.println(&quot;相乘的两边的操作数入栈：&quot;+firstNumber*lastNumber);
+
+          System.out.println(&quot;相乘后的栈长度：&quot;+number.size());
+
+        }else if(tempOperator.equals(&quot;/&quot;)){
+
+          double firstNumber = number.pop();
+
+          //如果分母为0，提示错误
+
+          if(firstNumber ==0){
+
+            System.out.println(&quot;分母为0，无法计算&quot;);
+
+break;
+
+          }else
+
+          number.push(number.pop()/firstNumber);
+
+        }
+
+}
+
+}
+
+    System.out.println(&quot;计算结果为：&quot;+number.pop());
+
+  }
+
+}</code></pre>
+<p>最后输出结果</p>
+<pre><code>&quot;C:\Program Files\Java\jdk1.8.0_162\bin\java.exe&quot; &quot;-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\lib\idea_rt.jar=50194:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\bin&quot; -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_162\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\rt.jar;D:\IdeaWorkSpace\Algorithms\JinDianSuanFa\out\production\JinDianSuanFa;D:\mvnrep\junit\junit\4.12\junit-4.12.jar;D:\mvnrep\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar&quot; com.cxy.stack.Arithmetic
+请输入一串带（）+数字的算术表达式：例如(1+((2+3)*(4*5)))
+(1+((2+3)*(4*5)))
+(1+((2+3)*(4*5)))
+入操作符栈：(
+入操作数栈：1
+入操作符栈：+
+入操作符栈：(
+入操作符栈：(
+入操作数栈：2
+入操作符栈：+
+入操作数栈：3
+遇到右括号
+遇到右括号出栈的字符：+
+将左括号去电(
+加号左边出操作数：2.0
+两边相加的操作数入栈：2.03.0
+相加后的栈长度：2
+入操作符栈：*
+入操作符栈：(
+入操作数栈：4
+入操作符栈：*
+入操作数栈：5
+遇到右括号
+遇到右括号出栈的字符：*
+将左括号去电(
+乘号右边5.0
+乘号左边4.0
+相乘的两边的操作数入栈：20.0
+相乘后的栈长度：3
+遇到右括号
+遇到右括号出栈的字符：*
+将左括号去电(
+乘号右边20.0
+乘号左边5.0
+相乘的两边的操作数入栈：100.0
+相乘后的栈长度：2
+遇到右括号
+遇到右括号出栈的字符：+
+将左括号去电(
+加号左边出操作数：1.0
+两边相加的操作数入栈：1.0100.0
+相加后的栈长度：1
+计算结果为：101.0
+
+Process finished with exit code 0</code></pre><h2 id="其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改"><a href="#其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改" class="headerlink" title="其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改"></a>其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改</h2>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -393,6 +638,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -401,11 +653,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>

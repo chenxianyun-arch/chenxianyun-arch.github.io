@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>一叶知秋的学习课堂</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="一叶知秋的学习课堂">
+  <title>算法-最小栈 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 栈 , 最小栈 ">
+  <meta name="description" content="算法-最小栈 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
 <meta property="og:type" content="website">
@@ -54,7 +54,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -323,12 +323,71 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-arithmtic/04" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于一叶知秋"><span class="toc-text">关于一叶知秋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">算法-最小栈</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="算法">算法</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">栈</a>
+            
+            <a class="color4">最小栈</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-07-04 15:53:59'>2020-07-04 15:50</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
     
 <style>
     .left-col .switch-btn,
@@ -341,37 +400,127 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于一叶知秋"><a href="#关于一叶知秋" class="headerlink" title="关于一叶知秋"></a>关于一叶知秋</h2><p><strong>一叶知秋</strong> 是楼主（chenxianyun）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目：设计一个支持 push ，pop ，top 操作，<strong>并能在常数时间内检索到最小元素的栈。(这个是这道题的考察重点)</strong></p>
+<p>push(x) —— 将元素 x 推入栈中。<br>pop() —— 删除栈顶的元素。<br>top() —— 获取栈顶元素。<br>getMin() —— 检索栈中的最小元素。</p>
+<p>示例:</p>
+<p>输入：<br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
+<p>输出：<br>[null,null,null,null,-3,null,0,-2]</p>
+<p>解释：<br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
+<hr>
+<p>1.如果我们不考虑<strong><em>在常数时间内检索到最小元素的栈</em></strong>的情况的话，我们可以使用集合来完成这道题，因为集合是<strong><em>有序可重复的(跟数组是类似的，只是封装了比数组更强大的一些功能)</em></strong>，只是我们在寻找最小值的时候是遍历的整个数组，时间复杂度就变大了，具体的实现如下:</p>
+<pre><code>class MinStack {
+    private List&lt;Integer&gt; list;
+    /** initialize your data structure here. */
+    public MinStack() {
+      //对象构造的时候才进行初始化
+      list = new ArrayList&lt;Integer&gt;();
+    }
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    public void push(int x) {
+      //将x入到list的末尾，一会儿直接获取末尾数字就能得到栈顶元素
+      list.add(x);
+    }
+
+    public void pop() {
+      //出栈，删除栈顶元素
+      list.remove(list.size()-1);
+    }
+
+    public int top() {
+      //查看栈顶元素
+      return list.get(list.size()-1);
+    }
+      //主要是这里不满足我们的需求
+    public int getMin() {
+      //第一个作为最小的
+      int min = list.get(0);
+      for(int i : list){
+        //如果有比第一个还小的，min 的值就更改为当前循环出来的值
+        if(i&lt;min){
+          min = i;
+        }
+      }
+      return min;
+    }
+}</code></pre><p>2.显然我们第一种方法是不满足我们题目要求的，我们可以采用辅助栈的方式来进行存储，<strong><em>注意：当进行出栈的时候，如果数字栈出栈的数字跟最小栈的栈顶元素相同，此最小栈也要出栈</em></strong></p>
+<pre><code class="java">package com.cxy.stack;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+/**
+ * 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
+ *
+ * push(x) —— 将元素 x 推入栈中。
+ * pop() —— 删除栈顶的元素。
+ * top() —— 获取栈顶元素。
+ * getMin() —— 检索栈中的最小元素。
+ *
+ * MinStack minStack = new MinStack();
+ * minStack.push(-2);
+ * minStack.push(0);
+ * minStack.push(-3);
+ * minStack.getMin();   --&gt; 返回 -3.
+ * minStack.pop();
+ * minStack.top();      --&gt; 返回 0.
+ * minStack.getMin();   --&gt; 返回 -2.
+ * 思想：每个数字入最小栈的时候先跟栈顶元素进行比较，如果比栈顶元素都小，入数字栈的同时要入最小栈
+ */
+public class MinStack {
+  /** initialize your data structure here. */
+  //数字栈
+  private Deque&lt;Integer&gt; numStack;
+  //最小栈
+  private Deque&lt;Integer&gt; minStack;
+  public MinStack() {
+    //在调用构造函数的时候才进行对象的初始化,开辟内存空间
+    numStack = new ArrayDeque&lt;&gt;();
+    minStack = new ArrayDeque&lt;&gt;();
+  }
+
+  public void push(int x) {
+    //每个数字入最小栈的时候先跟栈顶元素进行比较，如果比栈顶元素都小，入数字栈的同时要入最小栈
+    numStack.push(x);
+    if(minStack.size() ==0 || minStack.peek()&gt;=x){
+      minStack.push(x);
+    }
+  }
+
+  public void pop() {
+    //查看栈顶元素
+    //弹出栈顶元素,numStack出栈的元素minStack栈顶元素一致时，minStack栈顶元素也要出栈
+    int numPop = numStack.pop();
+    if(numPop == minStack.peek()){
+      minStack.pop();
+    }
+  }
+
+  public int top() {
+   return numStack.peek();
+  }
+
+  public int getMin() {
+    return minStack.peek();
+  }
+}
+</code></pre>
+<p><strong>我们这里最好使用Deque这种数据结构，而不用原生的Stack，因为当你一开始就输pop()出栈的话，栈为空，抛异常就导致程序终止了，当然我们也可以捕获这个异常做处理（我懒所以直接用Deque，哈哈哈）</strong></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -393,6 +542,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -401,11 +557,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
