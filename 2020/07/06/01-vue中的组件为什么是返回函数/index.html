@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法01-表达式求值 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 表达式求值 , 操作符，操作数 ">
-  <meta name="description" content="算法01-表达式求值 | 一叶知秋的学习课堂">
+  <title>01-vue中的组件为什么是返回函数 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" Vue , 内存地址引用 , js原型链 ">
+  <meta name="description" content="01-vue中的组件为什么是返回函数 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -577,9 +577,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/01" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-01-vue中的组件为什么是返回函数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法01-表达式求值</h1>
+        <h1 class="article-title">01-vue中的组件为什么是返回函数</h1>
     
     <div class="article-meta">
         
@@ -589,7 +589,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="大前端">大前端</a>
             
         </span>
         
@@ -597,16 +597,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">表达式求值</a>
+            <a class="color4">Vue</a>
             
-            <a class="color3">操作符，操作数</a>
+            <a class="color2">内存地址引用</a>
+            
+            <a class="color1">js原型链</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 15:36:22'>2020-07-04 15:34</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-07 00:16:34'>2020-07-06 23:51</time>
         
     </div>
     <div class="article-meta">
@@ -639,7 +641,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改"><span class="toc-text">其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#组件中的data属性为什么返回值是一个函数，而不是对象"><span class="toc-text">组件中的data属性为什么返回值是一个函数，而不是对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-组件是高可复用性的"><span class="toc-text">1.组件是高可复用性的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2例子如下"><span class="toc-text">2例子如下</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -655,207 +657,75 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>题目给出：本题主要是算法第四版上的一道题目<br>计算(1+((2+3)<em>(4</em>5)))的值</p>
-<p>解析：1.这道题，我们可以看到有操作数和操作符，我们可以利用两个栈来解决这个问题，一个操作数栈，一个操作符栈，分别为opertor,number。2.判断操作数出栈的条件是遇到 “)” 括号，遇到右括号就要进行操作符出栈（这里会遇到弹出的操作符不是我们想要的操作符，而是”(“ 这样我们就要将操作符栈再次出栈），对应的操作数栈相邻的两个操作数出栈，做算术表达式后进行再次入操作数栈。3.当操作数栈为空的时候，最后一次出操作数栈的就是我们计算得到的值。</p>
-<p>直接上代码</p>
-<pre><code class="java">
-package com.cxy.stack;
-
-import java.util.Scanner;
-
-import java.util.Stack;
-
-public class ArithmeticExpression {
-
-public static void main(String[] args){
-
-    System.out.println(&quot;请输入一串带（）+数字的算术表达式：例如(1+((2+3)*(4*5)))&quot;);
-
-    Scanner scanner =new Scanner(System.in);
-
-    String input = scanner.nextLine();
-
-    System.out.println(input);
-
-    //操作符栈
-
-    Stack opertor =new Stack&lt;&gt;();
-
-    //操作数栈
-
-    Stack number =new Stack&lt;&gt;();
-
-    //保存最终数据的
-
-    double res =0;
-
-    int index =0;
-
-    int len = input.length();
-
-    while(len&gt;0){
-
-      //index控制表达式的字符位置
-
-      len--;
-
-      //中间临时保存计算值
-
-      String tempOperator =null;
-
-      char ch = input.charAt(index);
-
-      index++;
-
-      if(ch ==&#39;+&#39;|| ch ==&#39;-&#39; || ch ==&#39;*&#39; || ch ==&#39;/&#39; || ch ==&#39;(&#39;){
-
-        //如果是操作符，
-
-        System.out.println(&quot;入操作符栈：&quot;+ch);
-
-        opertor.push(Character.toString(ch));
-
-      }else if(ch !=&#39;)&#39;){
-
-        System.out.println(&quot;入操作数栈：&quot;+ch);
-
-        number.push(Double.parseDouble(Character.toString(ch)));
-
-      }else if(ch ==&#39;)&#39;){
-
-        //遇到右括号，出操作符栈,并执行相应的number出栈
-
-        System.out.println(&quot;遇到右括号&quot;);
-
-        tempOperator = opertor.pop();
-
-        //再出一次操作符栈将（括号去掉
-
-        String leftKuo = opertor.pop();
-
-        System.out.println(&quot;遇到右括号出栈的字符：&quot;+tempOperator);
-
-        System.out.println(&quot;将左括号去电&quot;+leftKuo);
-
-        //出第一个number
-
-//        System.out.println(&quot;操作数右边的数：&quot;+firstNumber);
-
-        if(tempOperator.equals(&quot;+&quot;)){
-
-          double firstNumber = number.pop();
-
-          double lastNumber = number.pop();
-
-          //计算之后将新得到的数字继续入数字栈
-
-          System.out.println(&quot;加号左边出操作数：&quot;+lastNumber);
-
-          number.push(lastNumber+firstNumber);
-
-          System.out.println(&quot;两边相加的操作数入栈：&quot;+lastNumber+firstNumber);
-
-          System.out.println(&quot;相加后的栈长度：&quot;+number.size());
-
-        }else if(tempOperator.equals(&quot;-&quot;)){
-
-          //后出栈的减前面的
-
-          double firstNumber = number.pop();
-
-          number.push(number.pop()-firstNumber);
-
-        }else if(tempOperator.equals(&quot;*&quot;)){
-
-          double firstNumber = number.pop();
-
-          double lastNumber = number.pop();
-
-          System.out.println(&quot;乘号右边&quot;+firstNumber);
-
-          System.out.println(&quot;乘号左边&quot;+lastNumber);
-
-          number.push(lastNumber*firstNumber);
-
-          System.out.println(&quot;相乘的两边的操作数入栈：&quot;+firstNumber*lastNumber);
-
-          System.out.println(&quot;相乘后的栈长度：&quot;+number.size());
-
-        }else if(tempOperator.equals(&quot;/&quot;)){
-
-          double firstNumber = number.pop();
-
-          //如果分母为0，提示错误
-
-          if(firstNumber ==0){
-
-            System.out.println(&quot;分母为0，无法计算&quot;);
-
-break;
-
-          }else
-
-          number.push(number.pop()/firstNumber);
-
-        }
-
-}
-
-}
-
-    System.out.println(&quot;计算结果为：&quot;+number.pop());
-
+        <!-- 头部的title -->
+<hr>
+<h1 id="组件中的data属性为什么返回值是一个函数，而不是对象"><a href="#组件中的data属性为什么返回值是一个函数，而不是对象" class="headerlink" title="组件中的data属性为什么返回值是一个函数，而不是对象"></a>组件中的data属性为什么返回值是一个函数，而不是对象</h1><h2 id="1-组件是高可复用性的"><a href="#1-组件是高可复用性的" class="headerlink" title="1.组件是高可复用性的"></a>1.组件是高可复用性的</h2><p>1.1 如果组件中的data返回的是一个对象，那么其他地方在使用这个组件进行传值的时候，因为传递进来的是一个值引用，而不是一个具体的对象，js中传递的全部是引用，没有达到组件数据的隔离的效果，导致一处数据发生改变，用过相同组件的地方也会产生相应的变化，这是我们不希望发生的。例如下面的例子</p>
+<h2 id="2例子如下"><a href="#2例子如下" class="headerlink" title="2例子如下"></a>2例子如下</h2><pre><code class="js">const obj = {
+    count:0
+  }
+  //注册并挂载到全局的Vue上
+  Vue.component(&#39;spn&#39;,{
+    template:`#mycpn`,
+    data(){
+      return obj
+    },
+    methods:{
+      increment(){
+        this.count++
+      },
+      decrement(){
+        this.count--
+      }
+    }
+  })
+  let app = new Vue({
+    el: &quot;#app&quot;,
+  })
+  //在设计这个vue的时候，考虑到组件之间更改属性的过程中，如果直接更改属性会造成其他用到组件的地方因为前一个数据的变化，后面组件跟着变化的情况
+  //干脆直接设计成为调用函数，每次调用的时候变量的引用都是不同的，这样每次在进行修改组件属性的时候，其他的组件属性不会发生更改</code></pre>
+<p>上面代码的效果图<br><img src="https://upload-images.jianshu.io/upload_images/22769532-14b9556c3a231a74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>上面代码当我点击加号或者减号会出现什么样的结果呢，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-c953be3ac4ee7fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>当我点击加号的时候，这两个数字都进行了加1操作，这是我们希望看到的吗，实际工作中我们也是不希望有这样的事儿发生，因为组件是相对封闭的一个空间，他自己里面执行的逻辑不能被其他引用了该组件的操作所影响，那么我们就来研究一下为什么会发生这样的情况。</p>
+<p>首先我们来看一个js代码</p>
+<pre><code class="js">  function getMsg(){
+    return {
+      name:&quot;cxy&quot;,
+      age:18
+    }
+   }
+
+ let obj1 = getMsg();
+ let obj2 = getMsg();
+ let obj3 = getMsg();
+
+ obj1.name=&quot;coder&quot;
+  console.log(obj1.name)
+  console.log(obj2.name)
+  console.log(obj3.name)</code></pre>
+<p>我调用了三次getMsg()方法，返回了三个对象，我要验证这三个对象是否是属于同一个，我将其中一个对象的属性改了，看其他对象的属性是否会跟着改变，答案我们可以看到，他们是不会改变的，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-0e79a278953c39cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这到底是什么原因呢？理解这个问题，我们要首先了解内存模型，在进行方法调用返回对象的时候，每次返回的对象都是从栈空间里面创建的临时变量，也就是一个内存地址，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-42e4c55bd2ca3c05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Snipaste_2020-06-04_08-41-37.png"></p>
+<p>来看一下他的反例</p>
+<pre><code class="js">  //这里直接返回的是临时开辟的一块内存地址，而且地址不会发生改变
+  const msg = {
+    name:&quot;cxy&quot;,
+    age:18
   }
 
-}</code></pre>
-<p>最后输出结果</p>
-<pre><code>&quot;C:\Program Files\Java\jdk1.8.0_162\bin\java.exe&quot; &quot;-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\lib\idea_rt.jar=50194:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\bin&quot; -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_162\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\rt.jar;D:\IdeaWorkSpace\Algorithms\JinDianSuanFa\out\production\JinDianSuanFa;D:\mvnrep\junit\junit\4.12\junit-4.12.jar;D:\mvnrep\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar&quot; com.cxy.stack.Arithmetic
-请输入一串带（）+数字的算术表达式：例如(1+((2+3)*(4*5)))
-(1+((2+3)*(4*5)))
-(1+((2+3)*(4*5)))
-入操作符栈：(
-入操作数栈：1
-入操作符栈：+
-入操作符栈：(
-入操作符栈：(
-入操作数栈：2
-入操作符栈：+
-入操作数栈：3
-遇到右括号
-遇到右括号出栈的字符：+
-将左括号去电(
-加号左边出操作数：2.0
-两边相加的操作数入栈：2.03.0
-相加后的栈长度：2
-入操作符栈：*
-入操作符栈：(
-入操作数栈：4
-入操作符栈：*
-入操作数栈：5
-遇到右括号
-遇到右括号出栈的字符：*
-将左括号去电(
-乘号右边5.0
-乘号左边4.0
-相乘的两边的操作数入栈：20.0
-相乘后的栈长度：3
-遇到右括号
-遇到右括号出栈的字符：*
-将左括号去电(
-乘号右边20.0
-乘号左边5.0
-相乘的两边的操作数入栈：100.0
-相乘后的栈长度：2
-遇到右括号
-遇到右括号出栈的字符：+
-将左括号去电(
-加号左边出操作数：1.0
-两边相加的操作数入栈：1.0100.0
-相加后的栈长度：1
-计算结果为：101.0
+  function getMsg(){
+    return msg;
+  }
 
-Process finished with exit code 0</code></pre><h2 id="其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改"><a href="#其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改" class="headerlink" title="其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改"></a>其实还有很多地方需要考虑，比如用户输入的数据进行校验，小伙伴儿们可以进行参考和修改</h2>
+ let obj1 = getMsg();
+ let obj2 = getMsg();
+ let obj3 = getMsg();
+
+ obj1.name=&quot;coder&quot;
+  console.log(obj1.name)
+  console.log(obj2.name)
+  console.log(obj3.name)</code></pre>
+<p>打印结果<br><img src="https://upload-images.jianshu.io/upload_images/22769532-9bde731ef75d8be6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这又是为什么呢？请看下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/22769532-bd8d8e652f273afa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>那么也就解释了为什么data是一个函数，而不是一个对象，是对象的话，就直接返回的同一个内存地址，导致同一组件在不同地方使用，对象属性之间会产生影响。欢迎小伙伴儿指出我理解的不是很正确的地方，喜欢的话可以点赞支持一下，哈哈哈</p>
+<hr>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
     </div>
