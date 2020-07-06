@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>01-vue中的组件为什么是返回函数 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" Vue , 内存地址引用 , js原型链 ">
-  <meta name="description" content="01-vue中的组件为什么是返回函数 | 一叶知秋的学习课堂">
+  <title>02-前端axios网络请求的封装 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" axios , ajax , 网路请求 ">
+  <meta name="description" content="02-前端axios网络请求的封装 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -585,9 +585,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-01-vue中的组件为什么是返回函数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-02-前端axios网络请求的封装" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">01-vue中的组件为什么是返回函数</h1>
+        <h1 class="article-title">02-前端axios网络请求的封装</h1>
     
     <div class="article-meta">
         
@@ -605,18 +605,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Vue</a>
+            <a class="color1">axios</a>
             
-            <a class="color2">内存地址引用</a>
+            <a class="color5">ajax</a>
             
-            <a class="color1">js原型链</a>
+            <a class="color5">网路请求</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-07 00:18:18'>2020-07-06 23:51</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-07 01:29:24'>2020-07-07 00:28</time>
         
     </div>
     <div class="article-meta">
@@ -649,7 +649,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#组件中的data属性为什么返回值是一个函数，而不是对象"><span class="toc-text">组件中的data属性为什么返回值是一个函数，而不是对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-组件是高可复用性的"><span class="toc-text">1.组件是高可复用性的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2例子如下"><span class="toc-text">2例子如下</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络请求axios封装"><span class="toc-text">网络请求axios封装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是网络请求"><span class="toc-text">1.什么是网络请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-为什么要使用axios作为网络请求框架"><span class="toc-text">2.为什么要使用axios作为网络请求框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-axios解决函数的回调和业务逻辑单独处理"><span class="toc-text">3.axios解决函数的回调和业务逻辑单独处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1axios发送请求的方式"><span class="toc-text">3.1axios发送请求的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2发送get请求"><span class="toc-text">3.2发送get请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3发送并发请求-两个及以上"><span class="toc-text">3.3发送并发请求(两个及以上)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4网络全局配置"><span class="toc-text">3.4网络全局配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-让项目发送网路请求更加具有可配置性"><span class="toc-text">4 让项目发送网路请求更加具有可配置性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-创建新的axios全局实例"><span class="toc-text">4.1 创建新的axios全局实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-axios配置的升级版本"><span class="toc-text">4.2 axios配置的升级版本</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -665,73 +665,105 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- 头部的title -->
-<hr>
-<h1 id="组件中的data属性为什么返回值是一个函数，而不是对象"><a href="#组件中的data属性为什么返回值是一个函数，而不是对象" class="headerlink" title="组件中的data属性为什么返回值是一个函数，而不是对象"></a>组件中的data属性为什么返回值是一个函数，而不是对象</h1><h2 id="1-组件是高可复用性的"><a href="#1-组件是高可复用性的" class="headerlink" title="1.组件是高可复用性的"></a>1.组件是高可复用性的</h2><p>1.1 如果组件中的data返回的是一个对象，那么其他地方在使用这个组件进行传值的时候，因为传递进来的是一个值引用，而不是一个具体的对象，js中传递的全部是引用，没有达到组件数据的隔离的效果，导致一处数据发生改变，用过相同组件的地方也会产生相应的变化，这是我们不希望发生的。例如下面的例子</p>
-<h2 id="2例子如下"><a href="#2例子如下" class="headerlink" title="2例子如下"></a>2例子如下</h2><pre><code class="js">const obj = {
-    count:0
+        <hr>
+<h1 id="网络请求axios封装"><a href="#网络请求axios封装" class="headerlink" title="网络请求axios封装"></a>网络请求axios封装</h1><h2 id="1-什么是网络请求"><a href="#1-什么是网络请求" class="headerlink" title="1.什么是网络请求"></a>1.什么是网络请求</h2><p>在进行与后端数据交互的时候，通常需要向后端发送网络请求得到json串，前端通过格式转换进行页面的展示</p>
+<h2 id="2-为什么要使用axios作为网络请求框架"><a href="#2-为什么要使用axios作为网络请求框架" class="headerlink" title="2.为什么要使用axios作为网络请求框架"></a>2.为什么要使用axios作为网络请求框架</h2><p>刚开始纯xhr <strong><em>（XmlHttpRequest）</em></strong> 对象方式进行网络请求的发送，比较麻烦，并且容易产生冗余代码。后来出现了 <strong><em>jquery库中的ajax</em></strong> ，也是一个前端网路数据请求的框架，相比原生的网路请求，ajax进步很大，对xhr进行了进一步的封装，但是出现另外一个问题，那就是容易产生 <strong><em>回调地狱的问题</em></strong> ，如下 <strong><em>极端情况</em></strong></p>
+<pre><code class="js">$.ajax(url1,()=&gt;{
+  //在发送URL1请求的时候又继续发送请求URL2，代码一直处于回调中
+  // 这是一种很极端的情况，但有时候超过三层就不再回调了
+  $.ajax(url2,()=&gt;{
+
+  })
+})</code></pre>
+<h2 id="3-axios解决函数的回调和业务逻辑单独处理"><a href="#3-axios解决函数的回调和业务逻辑单独处理" class="headerlink" title="3.axios解决函数的回调和业务逻辑单独处理"></a>3.axios解决函数的回调和业务逻辑单独处理</h2><h3 id="3-1axios发送请求的方式"><a href="#3-1axios发送请求的方式" class="headerlink" title="3.1axios发送请求的方式"></a>3.1axios发送请求的方式</h3><pre><code class="js">axios(config)
+axios.request(config)
+axios.get(url[, config])
+axios.delete(url[, config])
+axios.head(url[, config])
+axios.post(url[, data[, config]])
+axios.put(url[, data[, config]])
+axios.patch(url[, data[, config]])</code></pre>
+<h3 id="3-2发送get请求"><a href="#3-2发送get请求" class="headerlink" title="3.2发送get请求"></a>3.2发送get请求</h3><pre><code class="js">import axios from &#39;axios&#39;
+
+export default {
+  name: &#39;#app&#39;
+  created:{
+    // 链式调用，.then()处理成功的回调，.catch()处理异常和拦截的数据
+    axios.get(&#39;http://localhost:8080/getlist&#39;).then(res =&gt; {
+      console.log(res)
+    }).catch(error){
+      console.log(error)
+    }
   }
-  //注册并挂载到全局的Vue上
-  Vue.component(&#39;spn&#39;,{
-    template:`#mycpn`,
-    data(){
-      return obj
-    },
-    methods:{
-      increment(){
-        this.count++
-      },
-      decrement(){
-        this.count--
+}</code></pre>
+<h3 id="3-3发送并发请求-两个及以上"><a href="#3-3发送并发请求-两个及以上" class="headerlink" title="3.3发送并发请求(两个及以上)"></a>3.3发送并发请求(两个及以上)</h3><pre><code class="js">import axios from &#39;axios&#39;
+export default {
+  name: &#39;#app&#39;
+  created:{
+    // 
+    axios.all(axios.get(&#39;http://localhost:8080/getlist&#39;,&#39;http:localhost:8080/getUserName&#39;),axios.get(&#39;http://localhost:8080/getusename&#39;),{parms:{type:&#39;sell&#39;,page:1}}).then(axios.spread((res1,res2) =&gt; {
+      console.log(res1)
+      console.log(res2)
+    })
+  }
+}</code></pre>
+<h3 id="3-4网络全局配置"><a href="#3-4网络全局配置" class="headerlink" title="3.4网络全局配置"></a>3.4网络全局配置</h3><pre><code class="js">// axios.defaults.baseURL = ‘123.207.32.32:8000’axios.defaults.headers.post[‘Content-Type’] = ‘application/x-www-form-urlencoded’;
+
+// 开发过程中很多参数都是相同的，所以把相同的东西抽取出来
+axios.defaults.baseUrl = &#39;http://localhost:8080/api&#39; 
+export default {
+  name: &#39;#app&#39;
+  created:{
+    // 链式调用，.then()处理成功的回调，.catch()处理异常和拦截的数据
+    axios.get(&#39;/username&#39;).then(res =&gt; {
+      console.log(res)
+    }).catch(error){
+      console.log(error)
+    }
+  }
+}</code></pre>
+<h2 id="4-让项目发送网路请求更加具有可配置性"><a href="#4-让项目发送网路请求更加具有可配置性" class="headerlink" title="4 让项目发送网路请求更加具有可配置性"></a>4 让项目发送网路请求更加具有可配置性</h2><h3 id="4-1-创建新的axios全局实例"><a href="#4-1-创建新的axios全局实例" class="headerlink" title="4.1 创建新的axios全局实例"></a>4.1 创建新的axios全局实例</h3><pre><code class="js">// 通过axios.create方法传入参数
+const instance = axios.create({
+  baseURL: &#39;http://localhost:8080/api&#39;
+  timeout: 5000
+  headers:{
+    // 用于上传form 表单
+    &#39;Content-Type’] = ‘application/x-www-form-urlencoded&#39;
+  }
+
+})</code></pre>
+<h3 id="4-2-axios配置的升级版本"><a href="#4-2-axios配置的升级版本" class="headerlink" title="4.2 axios配置的升级版本"></a>4.2 axios配置的升级版本</h3><pre><code class="js">//用单独的文件来保存这个文件
+import origin from &#39;axios&#39;
+export default function request(option){
+  return new Promise((resolve,reject) =&gt; {
+    const instance = origin.create({
+      baseURL: &#39;http://localhost:8080/api&#39;
+      timeout: 5000
+      headers:{
+        // 用于上传form 表单
+        &#39;Content-Type’] = ‘application/x-www-form-urlencoded&#39;
       }
-    }
+    })
+    instance(option).then(res =&gt; {
+      resolve(res)
+    }).catch(err =&gt; {
+      reject(err)
+    })
+    // 可以使用拦截器对请求和响应进行处理再放行
+    instance.interceptors.request.use(config =&gt; {
+      // 1.请求拦截目的在于对请求头进行一下添加或者删除
+      // 2.请求拦截后要放行
+      return config
+    })
+    instance.interceptors.response.use(resp =&gt; {
+      // 1.相关响应处理以及数据的格式化
+      return resp
+    })
+
   })
-  let app = new Vue({
-    el: &quot;#app&quot;,
-  })
-  //在设计这个vue的时候，考虑到组件之间更改属性的过程中，如果直接更改属性会造成其他用到组件的地方因为前一个数据的变化，后面组件跟着变化的情况
-  //干脆直接设计成为调用函数，每次调用的时候变量的引用都是不同的，这样每次在进行修改组件属性的时候，其他的组件属性不会发生更改</code></pre>
-<p>上面代码的效果图<br><img src="https://upload-images.jianshu.io/upload_images/22769532-14b9556c3a231a74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>上面代码当我点击加号或者减号会出现什么样的结果呢，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-c953be3ac4ee7fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>当我点击加号的时候，这两个数字都进行了加1操作，这是我们希望看到的吗，实际工作中我们也是不希望有这样的事儿发生，因为组件是相对封闭的一个空间，他自己里面执行的逻辑不能被其他引用了该组件的操作所影响，那么我们就来研究一下为什么会发生这样的情况。</p>
-<p>首先我们来看一个js代码</p>
-<pre><code class="js">  function getMsg(){
-    return {
-      name:&quot;cxy&quot;,
-      age:18
-    }
-   }
-
- let obj1 = getMsg();
- let obj2 = getMsg();
- let obj3 = getMsg();
-
- obj1.name=&quot;coder&quot;
-  console.log(obj1.name)
-  console.log(obj2.name)
-  console.log(obj3.name)</code></pre>
-<p>我调用了三次getMsg()方法，返回了三个对象，我要验证这三个对象是否是属于同一个，我将其中一个对象的属性改了，看其他对象的属性是否会跟着改变，答案我们可以看到，他们是不会改变的，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-0e79a278953c39cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这到底是什么原因呢？理解这个问题，我们要首先了解内存模型，在进行方法调用返回对象的时候，每次返回的对象都是从栈空间里面创建的临时变量，也就是一个内存地址，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-42e4c55bd2ca3c05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Snipaste_2020-06-04_08-41-37.png"></p>
-<p>来看一下他的反例</p>
-<pre><code class="js">  //这里直接返回的是临时开辟的一块内存地址，而且地址不会发生改变
-  const msg = {
-    name:&quot;cxy&quot;,
-    age:18
-  }
-
-  function getMsg(){
-    return msg;
-  }
-
- let obj1 = getMsg();
- let obj2 = getMsg();
- let obj3 = getMsg();
-
- obj1.name=&quot;coder&quot;
-  console.log(obj1.name)
-  console.log(obj2.name)
-  console.log(obj3.name)</code></pre>
-<p>打印结果<br><img src="https://upload-images.jianshu.io/upload_images/22769532-9bde731ef75d8be6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这又是为什么呢？请看下图</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22769532-bd8d8e652f273afa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>那么也就解释了为什么data是一个函数，而不是一个对象，是对象的话，就直接返回的同一个内存地址，导致同一组件在不同地方使用，对象属性之间会产生影响。欢迎小伙伴儿指出我理解的不是很正确的地方，喜欢的话可以点赞支持一下，哈哈哈</p>
+}
+</code></pre>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
