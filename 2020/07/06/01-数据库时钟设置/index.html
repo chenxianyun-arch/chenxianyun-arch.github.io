@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法16(字符串)-字符串转换倒N进行输出 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 字符串构造 ">
-  <meta name="description" content="算法16(字符串)-字符串转换倒N进行输出 | 一叶知秋的学习课堂">
+  <title>01-mysql-Timezone设置 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 数据库 , mysql ">
+  <meta name="description" content="01-mysql-Timezone设置 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -533,9 +533,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/16-字符串" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-01-数据库时钟设置" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法16(字符串)-字符串转换倒N进行输出</h1>
+        <h1 class="article-title">01-mysql-Timezone设置</h1>
     
     <div class="article-meta">
         
@@ -545,7 +545,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="数据库">数据库</a>
             
         </span>
         
@@ -553,14 +553,16 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">字符串构造</a>
+            <a class="color4">数据库</a>
+            
+            <a class="color1">mysql</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:29:37'>2020-07-04 16:29</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-06 20:06:11'>2020-07-06 19:20</time>
         
     </div>
     <div class="article-meta">
@@ -609,28 +611,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。</p>
-<p>字符          数值<br>I             1<br>V             5<br>X             10<br>L             50<br>C             100<br>D             500<br>M             1000<br>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
-<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p>
-<p>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。<br>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。<br>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。<br>给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。</p>
-<p>解析：利用取余的方式和取模的取出对应个，十，百，千，位数上具体的字符是什么，取余出来之后再将对应数位的字符与字符数组里的字符串进行对应，找到对应的字符串。然后拼接就可以得到具体的罗马数字，理解这个罗马数字的组成，再利用数字的取余和整除的特点把对应的字符取出来。<br>具体代码如下</p>
-<pre><code class="Java">public class IntToRoman {
-
-  public String intToRoman(int num) {
-    String[] one = new String[] {&quot;&quot; ,&quot;I&quot;, &quot;II&quot;, &quot;III&quot;, &quot;IV&quot;, &quot;V&quot;, &quot;VI&quot;, &quot;VII&quot;, &quot;VIII&quot;, &quot;IX&quot; };
-    String[] two = new String[] {&quot;&quot; ,&quot;X&quot;, &quot;XX&quot;, &quot;XXX&quot;, &quot;XL&quot;, &quot;L&quot;, &quot;LX&quot;, &quot;LXX&quot;, &quot;LXXX&quot;, &quot;XC&quot; };
-    String[] thr = new String[] {&quot;&quot; ,&quot;C&quot;, &quot;CC&quot;, &quot;CCC&quot;, &quot;CD&quot;, &quot;D&quot;, &quot;DC&quot;, &quot;DCC&quot;, &quot;DCCC&quot;, &quot;CM&quot; };
-    String[] fou = new String[] {&quot;&quot; ,&quot;M&quot;, &quot;MM&quot;, &quot;MMM&quot;};
-    return fou[num/1000]+ thr[num%1000/100] +two[num%100/10]+ one[num%10];
-  }
-
-  public static void main(String[] args){
-    IntToRoman toRoman = new IntToRoman();
-    String s = toRoman.intToRoman(1994);
-    System.out.println(s);
-  }
-}</code></pre>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/integer-to-roman" target="_blank" rel="noopener">https://leetcode-cn.com/problems/integer-to-roman</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+        <hr>
+<p>#想必小伙伴儿们在进行IDEA连接数据库的时候，都会出现下面的问题</p>
+<pre><code class="java">Server returns invalid timezone</code></pre>
+<p>解决办法：<br>cmd进入数据库中，use-&gt;你要使用的哪张表<br>输入以下内容进行查找时区</p>
+<pre><code class="java">show variables like &quot;%time_zone&quot;;</code></pre>
+<p>如果显示的是System，则证明没有选择时区，再输入以下内容选择时区</p>
+<pre><code>set global time_zone = &quot;+8:00&quot;;</code></pre><p>这样我们就可以搞定这个问题了</p>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
