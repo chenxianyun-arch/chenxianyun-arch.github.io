@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法07-删除数组中的指定值 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 递归 , 双指针 , 快慢指针 ">
-  <meta name="description" content="算法07-删除数组中的指定值 | 一叶知秋的学习课堂">
+  <title>01-mysql-Timezone设置 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 数据库 , mysql ">
+  <meta name="description" content="01-mysql-Timezone设置 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -557,9 +557,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/07" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-mysql56/01-数据库时钟设置" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法07-删除数组中的指定值</h1>
+        <h1 class="article-title">01-mysql-Timezone设置</h1>
     
     <div class="article-meta">
         
@@ -569,7 +569,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="数据库">数据库</a>
             
         </span>
         
@@ -577,18 +577,16 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">递归</a>
+            <a class="color4">数据库</a>
             
-            <a class="color4">双指针</a>
-            
-            <a class="color5">快慢指针</a>
+            <a class="color1">mysql</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:10:23'>2020-07-04 16:09</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-06 20:10:22'>2020-07-06 19:20</time>
         
     </div>
     <div class="article-meta">
@@ -637,29 +635,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目：<br>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p>
-<p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p>
-<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
-<p><strong><em>思路：双指针，一个慢指针(i)，一个快指针(j)，如果nums[j]=val,就将快指针右移，即j++,慢指针不动，如果nums[j]!=val,将nums[i]=nums[j],同时进行i++和j++</em></strong></p>
+        <hr>
+<p>#想必小伙伴儿们在进行IDEA连接数据库的时候，都会出现下面的问题</p>
+<pre><code class="java">Server returns invalid timezone</code></pre>
+<p>解决办法：<br>cmd进入数据库中，use-&gt;你要使用的哪张表<br>输入以下内容进行查找时区</p>
+<pre><code class="java">show variables like &quot;%time_zone&quot;;</code></pre>
+<p>如果显示的是System，则证明没有选择时区，再输入以下内容选择时区</p>
+<pre><code>set global time_zone = &quot;+8:00&quot;;</code></pre><p>这样我们就可以搞定这个问题了</p>
 <hr>
-<p>代码：</p>
-<pre><code class="java">public int removeElement(int[] nums,int val){
-    if(nums.length==0||nums==null){return 0;}
-    //慢指针
-    int i = 0;
-    for(int j=0;j&lt;nums.length;j++){
-      if(nums[j] != val){
-        nums[i] = nums[j];
-        //覆盖值之后i++指向下一个
-        i++;
-      }
-    }
-    for(int k:nums){
-      System.out.println(k);
-    }
-    return i;
-  }</code></pre>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-element" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-element</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
