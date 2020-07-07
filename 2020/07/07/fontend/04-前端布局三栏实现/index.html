@@ -200,7 +200,7 @@
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="26">
-
+<input type="hidden" id="yelog_site_word_count" value="15.4k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -389,6 +389,10 @@
 
 </div>
 
+    
+    <div id="local-search-result">
+
+    </div>
     
     <nav id="title-list-nav">
         
@@ -648,10 +652,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-07 19:07:08'>2020-07-07 18:47</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-07 20:43:46'>2020-07-07 18:47</time>
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:175</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -681,7 +687,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端三栏布局"><span class="toc-text">前端三栏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现的效果是左右定宽，中间自适应"><span class="toc-text">1.实现的效果是左右定宽，中间自适应</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端三栏布局"><span class="toc-text">前端三栏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现的效果是左右定宽，中间自适应"><span class="toc-text">1.实现的效果是左右定宽，中间自适应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-float实现"><span class="toc-text">2.float实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-flex"><span class="toc-text">3.flex</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -698,7 +704,42 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h1 id="前端三栏布局"><a href="#前端三栏布局" class="headerlink" title="前端三栏布局"></a>前端三栏布局</h1><h2 id="1-实现的效果是左右定宽，中间自适应"><a href="#1-实现的效果是左右定宽，中间自适应" class="headerlink" title="1.实现的效果是左右定宽，中间自适应"></a>1.实现的效果是左右定宽，中间自适应</h2><hr>
+<h1 id="前端三栏布局"><a href="#前端三栏布局" class="headerlink" title="前端三栏布局"></a>前端三栏布局</h1><h2 id="1-实现的效果是左右定宽，中间自适应"><a href="#1-实现的效果是左右定宽，中间自适应" class="headerlink" title="1.实现的效果是左右定宽，中间自适应"></a>1.实现的效果是左右定宽，中间自适应</h2><h2 id="2-float实现"><a href="#2-float实现" class="headerlink" title="2.float实现"></a>2.float实现</h2><ul>
+<li>实现原理<br>左右浮动，中间用margin进行分隔<br>```css</li>
+<li>{<pre><code> margin: 0;
+ padding: 0;</code></pre>   }<br>   .main{<pre><code> /* display: flex; */
+ height: 100px;</code></pre>   }<br>   .left{<pre><code> float: left;
+ width: 100px;
+ height: 100%;
+ background-color: red;</code></pre>   }<br>   .right{<pre><code> float: right;
+ height: 100%;
+ width: 200px;
+ background-color: yellowgreen;</code></pre>   }<br>   .center{<pre><code> height: 100%;
+ width: 100%;
+ margin: 0 200px 0 100px;
+ background-color: aqua;</code></pre>   }<pre><code></code></pre></li>
+</ul>
+<h2 id="3-flex"><a href="#3-flex" class="headerlink" title="3.flex"></a>3.flex</h2><pre><code class="css">/* 用flex布局实现 */
+.main{
+  display: flex;
+  height: 100px;
+}
+.left{
+  width: 100px;
+  background-color: red;
+}
+.center{
+  flex: 1;
+  background-color: yellow;
+}
+.right{
+  width: 100px;
+  background-color: blue;
+}</code></pre>
+<ul>
+<li>在目前看来，用浮动和flex布局是居多的，如果后我发现了新的布局方式，我会第一时间更新到我的博客上，总而言之，言而总之，<br>万物皆可flex(老ie😀了)</li>
+</ul>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -710,6 +751,18 @@
     <a  class="dashang" onclick="dashangToggle()">赏</a>
 </p>
 
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>04-前端布局三栏实现</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">175</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-07-07, 18:47:47</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-07, 20:43:46</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/07/fontend/04-%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E4%B8%89%E6%A0%8F%E5%AE%9E%E7%8E%B0/" title="04-前端布局三栏实现">http://yoursite.com/2020/07/07/fontend/04-%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E4%B8%89%E6%A0%8F%E5%AE%9E%E7%8E%B0/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
 
@@ -744,7 +797,7 @@
     </div>
     <div class="copyright">
         <p class="footer-entry">
-    ©2016-2020 blog
+    ©2019-2020 一叶知秋
 </p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
@@ -809,6 +862,25 @@
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
 
         
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:true,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
         
     }
 
@@ -900,6 +972,25 @@
     
 
     /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
     
 
     
