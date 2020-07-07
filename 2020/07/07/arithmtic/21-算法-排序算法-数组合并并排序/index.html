@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法19(递归)-有效的括号 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 递归 , 循环 ">
-  <meta name="description" content="算法19(递归)-有效的括号 | 一叶知秋的学习课堂">
+  <title>21-算法-(排序算法)-数组合并并排序 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 双指针 , 数组 , 逆向循环 ">
+  <meta name="description" content="21-算法-(排序算法)-数组合并并排序 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -637,9 +637,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/19-递归" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-arithmtic/21-算法-排序算法-数组合并并排序" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法19(递归)-有效的括号</h1>
+        <h1 class="article-title">21-算法-(排序算法)-数组合并并排序</h1>
     
     <div class="article-meta">
         
@@ -657,21 +657,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">递归</a>
+            <a class="color4">双指针</a>
             
-            <a class="color3">循环</a>
+            <a class="color3">数组</a>
+            
+            <a class="color5">逆向循环</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:35:26'>2020-07-04 16:34</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-07 22:37:00'>2020-07-07 22:35</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:425</span>
+        <span>字数:745</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -701,7 +703,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#合并排序数组"><span class="toc-text">合并排序数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目要求："><span class="toc-text">题目要求：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路一"><span class="toc-text">解题思路一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路二"><span class="toc-text">解题思路二</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -717,32 +719,109 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目：<br>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-<p>For example, given n = 3, a solution set is:</p>
-<p>[<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]</p>
-<p>一般看到这种比较具有对称性的一般都是可以采用递归思路进行求解的，主要是停止的状态是在什么地方，函数的参数设计，函数返回值以及涉及到里面递归调用的关系，一个小的子问题的理解，怎样理解这一个子问题是一个非常麻烦的事情，在这道题中，每一个()()()这种问题，都是()这种问题的的一个组合问题，在递归函数中，只需要找到函数的一个子解的终止条件，在这里，子解的终止条件就是当左括号和右括号都没有的时候，就可以进行返回操作，还有就是定义这个函数参数是(int left , int right,String item)分别表示，左右括号数量，每一次递归所加进来的字符串是哪种，具体的代码入下</p>
-<pre><code class="java"> //用于存储的集合
-  List&lt;String&gt; res = new ArrayList&lt;&gt;();
-  public List&lt;String&gt; generateParenthesis(int n) {
-    helper(n, n, &quot;&quot;);
-    return res;
+        <hr>
+<h1 id="合并排序数组"><a href="#合并排序数组" class="headerlink" title="合并排序数组"></a>合并排序数组</h1><h2 id="题目要求："><a href="#题目要求：" class="headerlink" title="题目要求："></a>题目要求：</h2><ul>
+<li>Input:<ul>
+<li>A = [1,2,3,0,0,0], m = 3</li>
+<li>B = [2,5,6],       n = 3</li>
+<li></li>
+<li>Output: [1,2,2,3,5,6]</li>
+</ul>
+</li>
+</ul>
+<p>函数的参数如下</p>
+<pre><code class="java">//输入参数为两个数组加上两数组的分别长度，而且A数组是完全可以装下B的
+public void merge(int[] A, int m, int[] B, int n) {
+
+}</code></pre>
+<h2 id="解题思路一"><a href="#解题思路一" class="headerlink" title="解题思路一"></a>解题思路一</h2><p>可以先将第二个数组加入到第一个数组的末尾，然后对整个数组A进行冒泡排序升序排列。</p>
+<pre><code class="java">//核心代码如下
+package com.cxy.SortingAlgorithm;
+
+/**
+ *You are given two sorted arrays, A and B, where A has a large enough buffer at the end to hold B. Write a method to merge B into A in sorted order.
+ *
+ * Initially the number of elements in A and B are m and n respectively.
+ *
+ * Example:
+ *
+ * Input:
+ * A = [1,2,3,0,0,0], m = 3
+ * B = [2,5,6],       n = 3
+ *
+ * Output: [1,2,2,3,5,6]
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/sorted-merge-lcci
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+public class MergeSortArray {
+  /**
+   * 思路就是先将B中后面的数据存到A中，然后再进行排序
+   */
+  //将两个数组进行合并然后返回
+  private int[] sumArr(int[] A, int m,int[] B,int n){
+    if(m == 0 &amp;&amp; n == 0){return A;}
+    if(m == 0){return B;}
+    if(n == 0){return A;}
+    int index = m;
+    int j = 0;
+    for(; index &lt;= m+n-1; index++){
+      A[index] = B[j];
+//      System.out.println(A[n]);
+      j++;
+    }
+    return A;
   }
-  private void helper(int left , int right , String curStr){
-    if(left == 0 &amp;&amp; right == 0 ) {
-      res.add(curStr);
-      return;
-    }
-    //1.结束条件，即没有左括号，也没有右括号，就返回，并将结果加入res
-    //2.函数调用,还有左括号，就添加左括号
-    if(left &gt; 0) {
-      helper( left - 1, right, curStr + &quot;(&quot; );
-    }
-    if(right &gt; left) {
-      helper(left, right - 1, curStr + &quot;)&quot; );
+
+  public void merge(int[] A, int m, int[] B, int n) {
+
+    //j是指向的B中的下标
+    int[] sumArr = sumArr(A,m, B,n);
+
+    //对数据进行排序,采用冒泡排序进行降序排列
+    for(int i = 0;i&lt;sumArr.length-1;i++){
+      for(int j = i+1; j&lt;sumArr.length-1; j++){
+        System.out.println(sumArr[i] +&quot; -- &quot;+ sumArr[j]);
+        if(sumArr[i] &gt; sumArr[j]){
+          int temp = sumArr[i];
+
+          sumArr[i] = sumArr[j];
+          sumArr[j] = temp;
+        }
+      }
     }
   }
-</code></pre>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/generate-parentheses" target="_blank" rel="noopener">https://leetcode-cn.com/problems/generate-parentheses</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+  public static void main(String[] args) {
+    int[] A = new int[] {0};
+    int[] B = new int[] {2};
+    new MergeSortArray().merge(A, 0,B, 1);
+  }
+}</code></pre>
+<h2 id="解题思路二"><a href="#解题思路二" class="headerlink" title="解题思路二"></a>解题思路二</h2><ul>
+<li>因为两个数组都是排好序的，双指针都指向数组的头的话，每次 比较都要移动数组的后面全部，换一种思路，从后面进行指向，每次比较尾部的两个数据大小 ，大的就放入A的尾部，依次这样循环，<strong><em>这里要注意当A数组为空的时候，直接将B的数据全部搬到A里面就可以了。</em></strong><pre><code class="java">class Solution {
+public void merge(int[] A, int m, int[] B, int n) {
+  //两个数组中的下标
+  int i = m - 1;
+  int j = n - 1;
+  //新的合并的数组
+  int index = m + n-1;
+  while(j &gt;= 0){
+    //如果数组A为空，直接将数组B中的内容加到
+    if(i &lt; 0 || A[i] &lt; B[j]){
+      A[index] = B[j];
+      j--;
+    }else{
+      A[index] = A[i];
+      i--;
+    }
+    index--;
+  }
+}
+}</code></pre>
+这里的双指针指向的分别是数组的尾部，然后依次比较大小，特别要注意的是A可能是为空的，也就是没有前面的元数据，所以直接在while里面第一次判断直接将B加入到A中，这个是这道题的重要的一点。</li>
+</ul>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -756,12 +835,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>算法19(递归)-有效的括号</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">425</span></p>
+    <p><span class="copy-title">文章标题:</span>21-算法-(排序算法)-数组合并并排序</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">745</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-07-04, 16:34:39</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-04, 16:35:26</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/04/arithmtic/19-%E9%80%92%E5%BD%92/" title="算法19(递归)-有效的括号">http://yoursite.com/2020/07/04/arithmtic/19-%E9%80%92%E5%BD%92/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-07, 22:35:19</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-07, 22:37:00</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/07/arithmtic/21-%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="21-算法-(排序算法)-数组合并并排序">http://yoursite.com/2020/07/07/arithmtic/21-%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E5%B9%B6%E6%8E%92%E5%BA%8F/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>

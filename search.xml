@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>21-算法-(排序算法)-数组合并并排序</title>
+      <link href="/2020/07/07/arithmtic/21-%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+      <url>/2020/07/07/arithmtic/21-%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="合并排序数组"><a href="#合并排序数组" class="headerlink" title="合并排序数组"></a>合并排序数组</h1><h2 id="题目要求："><a href="#题目要求：" class="headerlink" title="题目要求："></a>题目要求：</h2><ul><li>Input:<ul><li>A = [1,2,3,0,0,0], m = 3</li><li>B = [2,5,6],       n = 3</li><li></li><li>Output: [1,2,2,3,5,6]</li></ul></li></ul><p>函数的参数如下</p><pre><code class="java">//输入参数为两个数组加上两数组的分别长度，而且A数组是完全可以装下B的public void merge(int[] A, int m, int[] B, int n) {}</code></pre><h2 id="解题思路一"><a href="#解题思路一" class="headerlink" title="解题思路一"></a>解题思路一</h2><p>可以先将第二个数组加入到第一个数组的末尾，然后对整个数组A进行冒泡排序升序排列。</p><pre><code class="java">//核心代码如下package com.cxy.SortingAlgorithm;/** *You are given two sorted arrays, A and B, where A has a large enough buffer at the end to hold B. Write a method to merge B into A in sorted order. * * Initially the number of elements in A and B are m and n respectively. * * Example: * * Input: * A = [1,2,3,0,0,0], m = 3 * B = [2,5,6],       n = 3 * * Output: [1,2,2,3,5,6] * * 来源：力扣（LeetCode） * 链接：https://leetcode-cn.com/problems/sorted-merge-lcci * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 */public class MergeSortArray {  /**   * 思路就是先将B中后面的数据存到A中，然后再进行排序   */  //将两个数组进行合并然后返回  private int[] sumArr(int[] A, int m,int[] B,int n){    if(m == 0 &amp;&amp; n == 0){return A;}    if(m == 0){return B;}    if(n == 0){return A;}    int index = m;    int j = 0;    for(; index &lt;= m+n-1; index++){      A[index] = B[j];//      System.out.println(A[n]);      j++;    }    return A;  }  public void merge(int[] A, int m, int[] B, int n) {    //j是指向的B中的下标    int[] sumArr = sumArr(A,m, B,n);    //对数据进行排序,采用冒泡排序进行降序排列    for(int i = 0;i&lt;sumArr.length-1;i++){      for(int j = i+1; j&lt;sumArr.length-1; j++){        System.out.println(sumArr[i] +&quot; -- &quot;+ sumArr[j]);        if(sumArr[i] &gt; sumArr[j]){          int temp = sumArr[i];          sumArr[i] = sumArr[j];          sumArr[j] = temp;        }      }    }  }  public static void main(String[] args) {    int[] A = new int[] {0};    int[] B = new int[] {2};    new MergeSortArray().merge(A, 0,B, 1);  }}</code></pre><h2 id="解题思路二"><a href="#解题思路二" class="headerlink" title="解题思路二"></a>解题思路二</h2><ul><li>因为两个数组都是排好序的，双指针都指向数组的头的话，每次 比较都要移动数组的后面全部，换一种思路，从后面进行指向，每次比较尾部的两个数据大小 ，大的就放入A的尾部，依次这样循环，<strong><em>这里要注意当A数组为空的时候，直接将B的数据全部搬到A里面就可以了。</em></strong><pre><code class="java">class Solution {public void merge(int[] A, int m, int[] B, int n) {  //两个数组中的下标  int i = m - 1;  int j = n - 1;  //新的合并的数组  int index = m + n-1;  while(j &gt;= 0){    //如果数组A为空，直接将数组B中的内容加到    if(i &lt; 0 || A[i] &lt; B[j]){      A[index] = B[j];      j--;    }else{      A[index] = A[i];      i--;    }    index--;  }}}</code></pre>这里的双指针指向的分别是数组的尾部，然后依次比较大小，特别要注意的是A可能是为空的，也就是没有前面的元数据，所以直接在while里面第一次判断直接将B加入到A中，这个是这道题的重要的一点。</li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 逆向循环 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>04-前端布局三栏实现</title>
       <link href="/2020/07/07/fontend/04-%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E4%B8%89%E6%A0%8F%E5%AE%9E%E7%8E%B0/"/>
       <url>/2020/07/07/fontend/04-%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E4%B8%89%E6%A0%8F%E5%AE%9E%E7%8E%B0/</url>
