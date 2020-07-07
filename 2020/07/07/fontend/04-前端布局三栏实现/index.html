@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>01-vue中的组件为什么是返回函数 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" Vue , 内存地址引用 , js原型链 ">
-  <meta name="description" content="01-vue中的组件为什么是返回函数 | 一叶知秋的学习课堂">
+  <title>04-前端布局三栏实现 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" css , 布局 , 三栏布局 ">
+  <meta name="description" content="04-前端布局三栏实现 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -151,11 +151,11 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(24)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(26)</small></div></li>
     
         
             
-            <li><div data-rel="大前端">大前端<small>(2)</small></div>
+            <li><div data-rel="大前端">大前端<small>(4)</small></div>
                 
             </li>
             
@@ -199,7 +199,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="24">
+<input type="hidden" id="yelog_site_posts_number" value="26">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -258,6 +258,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>css</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>dfs</a>
             </li>
         
@@ -283,6 +287,14 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Vue</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>三栏布局</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>两栏布局</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -323,6 +335,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>字符串构造</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>布局</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -377,7 +393,23 @@
     <nav id="title-list-nav">
         
         <a  class="全部文章 大前端 "
-           href="/2020/07/07/02-%E5%89%8D%E7%AB%AFaxios%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E5%B0%81%E8%A3%85/"
+           href="/2020/07/07/fontend/04-%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E4%B8%89%E6%A0%8F%E5%AE%9E%E7%8E%B0/"
+           data-tag="css,布局,三栏布局"
+           data-author="" >
+            <span class="post-title" title="04-前端布局三栏实现">04-前端布局三栏实现</span>
+            <span class="post-date" title="2020-07-07 18:47:47">2020/07/07</span>
+        </a>
+        
+        <a  class="全部文章 大前端 "
+           href="/2020/07/07/fontend/03-%E5%89%8D%E7%AB%AF%E4%B8%A4%E6%A0%8F%E5%B8%83%E5%B1%80/"
+           data-tag="css,布局,两栏布局"
+           data-author="" >
+            <span class="post-title" title="03-前端两栏布局">03-前端两栏布局</span>
+            <span class="post-date" title="2020-07-07 18:31:31">2020/07/07</span>
+        </a>
+        
+        <a  class="全部文章 大前端 "
+           href="/2020/07/07/fontend/02-%E5%89%8D%E7%AB%AFaxios%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E5%B0%81%E8%A3%85/"
            data-tag="axios,ajax,网路请求"
            data-author="" >
             <span class="post-title" title="02-前端axios网络请求的封装">02-前端axios网络请求的封装</span>
@@ -385,7 +417,7 @@
         </a>
         
         <a  class="全部文章 大前端 "
-           href="/2020/07/06/01-vue%E4%B8%AD%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0/"
+           href="/2020/07/06/fontend/01-vue%E4%B8%AD%E7%9A%84%E7%BB%84%E4%BB%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0/"
            data-tag="Vue,内存地址引用,js原型链"
            data-author="" >
             <span class="post-title" title="01-vue中的组件为什么是返回函数">01-vue中的组件为什么是返回函数</span>
@@ -585,9 +617,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-01-vue中的组件为什么是返回函数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-fontend/04-前端布局三栏实现" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">01-vue中的组件为什么是返回函数</h1>
+        <h1 class="article-title">04-前端布局三栏实现</h1>
     
     <div class="article-meta">
         
@@ -605,18 +637,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Vue</a>
+            <a class="color4">css</a>
             
-            <a class="color2">内存地址引用</a>
+            <a class="color3">布局</a>
             
-            <a class="color1">js原型链</a>
+            <a class="color5">三栏布局</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-07 00:18:18'>2020-07-06 23:51</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-07 19:07:08'>2020-07-07 18:47</time>
         
     </div>
     <div class="article-meta">
@@ -649,7 +681,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#组件中的data属性为什么返回值是一个函数，而不是对象"><span class="toc-text">组件中的data属性为什么返回值是一个函数，而不是对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-组件是高可复用性的"><span class="toc-text">1.组件是高可复用性的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2例子如下"><span class="toc-text">2例子如下</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端三栏布局"><span class="toc-text">前端三栏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现的效果是左右定宽，中间自适应"><span class="toc-text">1.实现的效果是左右定宽，中间自适应</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -665,73 +697,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- 头部的title -->
-<hr>
-<h1 id="组件中的data属性为什么返回值是一个函数，而不是对象"><a href="#组件中的data属性为什么返回值是一个函数，而不是对象" class="headerlink" title="组件中的data属性为什么返回值是一个函数，而不是对象"></a>组件中的data属性为什么返回值是一个函数，而不是对象</h1><h2 id="1-组件是高可复用性的"><a href="#1-组件是高可复用性的" class="headerlink" title="1.组件是高可复用性的"></a>1.组件是高可复用性的</h2><p>1.1 如果组件中的data返回的是一个对象，那么其他地方在使用这个组件进行传值的时候，因为传递进来的是一个值引用，而不是一个具体的对象，js中传递的全部是引用，没有达到组件数据的隔离的效果，导致一处数据发生改变，用过相同组件的地方也会产生相应的变化，这是我们不希望发生的。例如下面的例子</p>
-<h2 id="2例子如下"><a href="#2例子如下" class="headerlink" title="2例子如下"></a>2例子如下</h2><pre><code class="js">const obj = {
-    count:0
-  }
-  //注册并挂载到全局的Vue上
-  Vue.component(&#39;spn&#39;,{
-    template:`#mycpn`,
-    data(){
-      return obj
-    },
-    methods:{
-      increment(){
-        this.count++
-      },
-      decrement(){
-        this.count--
-      }
-    }
-  })
-  let app = new Vue({
-    el: &quot;#app&quot;,
-  })
-  //在设计这个vue的时候，考虑到组件之间更改属性的过程中，如果直接更改属性会造成其他用到组件的地方因为前一个数据的变化，后面组件跟着变化的情况
-  //干脆直接设计成为调用函数，每次调用的时候变量的引用都是不同的，这样每次在进行修改组件属性的时候，其他的组件属性不会发生更改</code></pre>
-<p>上面代码的效果图<br><img src="https://upload-images.jianshu.io/upload_images/22769532-14b9556c3a231a74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>上面代码当我点击加号或者减号会出现什么样的结果呢，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-c953be3ac4ee7fae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>当我点击加号的时候，这两个数字都进行了加1操作，这是我们希望看到的吗，实际工作中我们也是不希望有这样的事儿发生，因为组件是相对封闭的一个空间，他自己里面执行的逻辑不能被其他引用了该组件的操作所影响，那么我们就来研究一下为什么会发生这样的情况。</p>
-<p>首先我们来看一个js代码</p>
-<pre><code class="js">  function getMsg(){
-    return {
-      name:&quot;cxy&quot;,
-      age:18
-    }
-   }
-
- let obj1 = getMsg();
- let obj2 = getMsg();
- let obj3 = getMsg();
-
- obj1.name=&quot;coder&quot;
-  console.log(obj1.name)
-  console.log(obj2.name)
-  console.log(obj3.name)</code></pre>
-<p>我调用了三次getMsg()方法，返回了三个对象，我要验证这三个对象是否是属于同一个，我将其中一个对象的属性改了，看其他对象的属性是否会跟着改变，答案我们可以看到，他们是不会改变的，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-0e79a278953c39cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这到底是什么原因呢？理解这个问题，我们要首先了解内存模型，在进行方法调用返回对象的时候，每次返回的对象都是从栈空间里面创建的临时变量，也就是一个内存地址，如下<br><img src="https://upload-images.jianshu.io/upload_images/22769532-42e4c55bd2ca3c05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Snipaste_2020-06-04_08-41-37.png"></p>
-<p>来看一下他的反例</p>
-<pre><code class="js">  //这里直接返回的是临时开辟的一块内存地址，而且地址不会发生改变
-  const msg = {
-    name:&quot;cxy&quot;,
-    age:18
-  }
-
-  function getMsg(){
-    return msg;
-  }
-
- let obj1 = getMsg();
- let obj2 = getMsg();
- let obj3 = getMsg();
-
- obj1.name=&quot;coder&quot;
-  console.log(obj1.name)
-  console.log(obj2.name)
-  console.log(obj3.name)</code></pre>
-<p>打印结果<br><img src="https://upload-images.jianshu.io/upload_images/22769532-9bde731ef75d8be6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这又是为什么呢？请看下图</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22769532-bd8d8e652f273afa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>那么也就解释了为什么data是一个函数，而不是一个对象，是对象的话，就直接返回的同一个内存地址，导致同一组件在不同地方使用，对象属性之间会产生影响。欢迎小伙伴儿指出我理解的不是很正确的地方，喜欢的话可以点赞支持一下，哈哈哈</p>
+        <hr>
+<h1 id="前端三栏布局"><a href="#前端三栏布局" class="headerlink" title="前端三栏布局"></a>前端三栏布局</h1><h2 id="1-实现的效果是左右定宽，中间自适应"><a href="#1-实现的效果是左右定宽，中间自适应" class="headerlink" title="1.实现的效果是左右定宽，中间自适应"></a>1.实现的效果是左右定宽，中间自适应</h2><hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>

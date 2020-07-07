@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>一叶知秋的学习课堂</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="一叶知秋的学习课堂">
+  <title>03-前端两栏布局 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" css , 布局 , 两栏布局 ">
+  <meta name="description" content="03-前端两栏布局 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -54,7 +54,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -615,12 +615,73 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-fontend/03-前端两栏布局" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于一叶知秋"><span class="toc-text">关于一叶知秋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">03-前端两栏布局</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="大前端">大前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">css</a>
+            
+            <a class="color3">布局</a>
+            
+            <a class="color5">两栏布局</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-07-07 18:46:39'>2020-07-07 18:31</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端样式布局两栏布局"><span class="toc-text">前端样式布局两栏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-两栏布局用在何处"><span class="toc-text">1.两栏布局用在何处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进行两栏布局的方式方法有哪些"><span class="toc-text">2.进行两栏布局的方式方法有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-具体实现"><span class="toc-text">3.具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-flat-margin"><span class="toc-text">3.1 flat + margin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2flex布局实现"><span class="toc-text">3.2flex布局实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3flex布局实现"><span class="toc-text">3.3flex布局实现</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -633,37 +694,84 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于一叶知秋"><a href="#关于一叶知秋" class="headerlink" title="关于一叶知秋"></a>关于一叶知秋</h2><p><strong>一叶知秋</strong> 是楼主（chenxianyun）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="前端样式布局两栏布局"><a href="#前端样式布局两栏布局" class="headerlink" title="前端样式布局两栏布局"></a>前端样式布局两栏布局</h1><hr>
+<h2 id="1-两栏布局用在何处"><a href="#1-两栏布局用在何处" class="headerlink" title="1.两栏布局用在何处"></a>1.两栏布局用在何处</h2><ul>
+<li>左边栏固定，右边栏根据视口进行自适应<h2 id="2-进行两栏布局的方式方法有哪些"><a href="#2-进行两栏布局的方式方法有哪些" class="headerlink" title="2.进行两栏布局的方式方法有哪些"></a>2.进行两栏布局的方式方法有哪些</h2></li>
+<li>2.1 float + margin</li>
+<li>2.2 flex 布局</li>
+<li><strong><em>目前我实际用过的就这两种</em></strong></li>
 </ul>
+<h2 id="3-具体实现"><a href="#3-具体实现" class="headerlink" title="3.具体实现"></a>3.具体实现</h2><h3 id="3-1-flat-margin"><a href="#3-1-flat-margin" class="headerlink" title="3.1 flat + margin"></a>3.1 flat + margin</h3><pre><code class="css">    /* 第一种实现
+      left固定宽度左浮动，right 宽度width: auto;
+     */
+    .main{
+      width: 100%;
+      height: 1000px;
+      background-color: #eee;
+    }
+    .left{
+      width: 300px;
+      height: 100%;
+      float: left;
+      background-color: red;
+    }
+    .right{
+      width: auto;
+      height: 100%;
+      margin-left: 300px;
+      background-color: yellow;
+    } </code></pre>
+<h3 id="3-2flex布局实现"><a href="#3-2flex布局实现" class="headerlink" title="3.2flex布局实现"></a>3.2flex布局实现</h3><pre><code class="css">  .main{
+    width: 100%;
+    height: 400px;
+    background-color: red;
+    /*开启flex布局，里面的小item会成为一个个的小内容块儿*/
+    display: flex;
+  }
+  .left{
+    width: 100px;
+    background-color: violet;
+  }
+  .right{
+    /*设置占比为剩下的100%*/
+    flex: 1;
+    background-color: yellowgreen;
+  }</code></pre>
+<h3 id="3-3flex布局实现"><a href="#3-3flex布局实现" class="headerlink" title="3.3flex布局实现"></a>3.3flex布局实现</h3><pre><code class="css">    .main{
+      display: flex;
+      height: 1000px;
+      background-color: red;
+    }
+    .left{
+      flex-shrink: 0;
+      flex-grow: 0;
+      flex-basis: 200px;
+      background-color: yellowgreen;
+    }
+    .right{
+      flex: auto;
+      background-color: blue;
+    }
+</code></pre>
+<hr>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -685,6 +793,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -693,11 +808,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
