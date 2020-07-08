@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>22-算法-位运算实现的快速排序算法</title>
+      <link href="/2020/07/08/arithmtic/22-%E7%AE%97%E6%B3%95-%E4%BD%8D%E8%BF%90%E7%AE%97%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+      <url>/2020/07/08/arithmtic/22-%E7%AE%97%E6%B3%95-%E4%BD%8D%E8%BF%90%E7%AE%97%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="排序算法用异或实现"><a href="#排序算法用异或实现" class="headerlink" title="排序算法用异或实现"></a>排序算法用异或实现</h1><h2 id="1-什么是异或"><a href="#1-什么是异或" class="headerlink" title="1.什么是异或"></a>1.什么是异或</h2><ul><li>异或就是当两个数转换成二进制后，进行位运算，如果对应位相同就为0，不同就为1</li><li>举例如下<pre><code class="js">//1.a=1 b=2//2.对应的a转换成二进制位0 1； b转换成二进制为 1 0//3.如果将a^b的值用c二进制保存起来就是c --&gt; 1 1//4.我们将c异或其中任意一个数，得到的就是与之对应的另外一个数//5 比如c^a  得到的是b的值，</code></pre></li></ul><p>//原理就是利用异或的特点：两数异或后的结果再异或其中一数，得到的是另外一个数字</p><p>//验证代码如下</p><p>var a = 1<br>  var b= 2<br>  console.log(“交换前的a:”+ a,”交换前的b:”+b)<br>  //a存储的是a^b的中间值<br>  a = a^b<br>  //用a^b的中间值再来^ b，得到的是a,将a赋值给b<br>  b = a^b<br>  //b保存的是a的值，b^a，实际上是a^ 第一行的a保存的中间值，b^a————》得到b，再将b的值赋值给a<br>  a = b^a<br>  console.log(“交换后的a:”+ a,”交换后的b:”+b)</p><pre><code>* 结果如下![image.png](https://upload-images.jianshu.io/upload_images/22769532-c2bc2992b530574d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)## 2.下面就开始进入正题，快速排序位运算```jsconst arr = [1,2,5,7,2,3,5]  let len = arr.length  let i = 0  var j = 0  while(i &lt; len){    //外层循环遍历第一行    j = i    while(j &lt; len){      //内层循环遍历i后面的元素，查看是否有比当前元素小的，有的话就交换数据      if(arr[j] &lt; arr[i]){        arr[i] = arr[i] ^ arr[j]        arr[j] = arr[i] ^ arr[j]        arr[i] = arr[j] ^ arr[i]       }      j++    }    i++  }  console.log(arr.toString())</code></pre><ul><li>通过这个题，可以提高原有选择排序的一个效率，位运算是比创建一个新的中间值来保存变量效率要更高。这里也可以回忆一下快速排序的一个实现方式</li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 位运算 </tag>
+            
+            <tag> 快速排序 </tag>
+            
+            <tag> 异或 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringBoot整合SpringSecurity</title>
       <link href="/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88SpringSecurity/"/>
       <url>/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88SpringSecurity/</url>

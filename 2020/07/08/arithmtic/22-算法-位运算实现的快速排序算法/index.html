@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法12(链表)-两两交换链表 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 递归 , 链表 ">
-  <meta name="description" content="算法12(链表)-两两交换链表 | 一叶知秋的学习课堂">
+  <title>22-算法-位运算实现的快速排序算法 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 位运算 , 快速排序 , 异或 ">
+  <meta name="description" content="22-算法-位运算实现的快速排序算法 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
 <meta property="og:type" content="website">
@@ -677,9 +677,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/12-链表" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-arithmtic/22-算法-位运算实现的快速排序算法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法12(链表)-两两交换链表</h1>
+        <h1 class="article-title">22-算法-位运算实现的快速排序算法</h1>
     
     <div class="article-meta">
         
@@ -697,21 +697,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">递归</a>
+            <a class="color4">位运算</a>
             
-            <a class="color3">链表</a>
+            <a class="color5">快速排序</a>
+            
+            <a class="color3">异或</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:21:03'>2020-07-04 16:20</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-08 12:23:31'>2020-07-08 11:58</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:372</span>
+        <span>字数:502</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -741,7 +743,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#排序算法用异或实现"><span class="toc-text">排序算法用异或实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是异或"><span class="toc-text">1.什么是异或</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -757,29 +759,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目描述<br>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
-<p>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
-<p>其实我对于这道题的理解也不是特别的深刻，这道题采用递归是最简单的，下面是大佬对于递归的理解<br><a href="https://lyl0724.github.io/2020/01/25/1/" target="_blank" rel="noopener">https://lyl0724.github.io/2020/01/25/1/</a></p>
-<p>再来说说我是怎么理解这道题的，首先既然要交换，肯定是两个一组才有机会进行交换，在进行交换的时候，本节点总是前一个当作后一个节点的next节点，后一节点作为本节点的头节点。递归调用只需要知道这几个条件：1.什么时候递归调用结束，2.本次递归调用给下层需要返回什么，递归调用结束时间。<br>下面的就是我的代码</p>
-<pre><code class="java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-  public ListNode swapPairs(ListNode head) {
-      if(head == null || head.next == null){return head;}
-      ListNode next = head.next;
-      head.next = swapPairs(next.next);
-      next.next = head;
-      return next;
-  }</code></pre>
-<p>主要是一个算法，没有写具体的类</p>
-<p>示例:</p>
-<p>给定 1-&gt;2-&gt;3-&gt;4, 你应该返回 2-&gt;1-&gt;4-&gt;3.</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs" target="_blank" rel="noopener">https://leetcode-cn.com/problems/swap-nodes-in-pairs</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+        <hr>
+<h1 id="排序算法用异或实现"><a href="#排序算法用异或实现" class="headerlink" title="排序算法用异或实现"></a>排序算法用异或实现</h1><h2 id="1-什么是异或"><a href="#1-什么是异或" class="headerlink" title="1.什么是异或"></a>1.什么是异或</h2><ul>
+<li>异或就是当两个数转换成二进制后，进行位运算，如果对应位相同就为0，不同就为1</li>
+<li>举例如下<pre><code class="js">//1.a=1 b=2
+//2.对应的a转换成二进制位0 1； b转换成二进制为 1 0
+//3.如果将a^b的值用c二进制保存起来就是c --&gt; 1 1
+//4.我们将c异或其中任意一个数，得到的就是与之对应的另外一个数
+//5 比如c^a  得到的是b的值，
+</code></pre>
+</li>
+</ul>
+<p>//原理就是利用异或的特点：两数异或后的结果再异或其中一数，得到的是另外一个数字</p>
+<p>//验证代码如下</p>
+<p>var a = 1<br>  var b= 2<br>  console.log(“交换前的a:”+ a,”交换前的b:”+b)<br>  //a存储的是a^b的中间值<br>  a = a^b<br>  //用a^b的中间值再来^ b，得到的是a,将a赋值给b<br>  b = a^b<br>  //b保存的是a的值，b^a，实际上是a^ 第一行的a保存的中间值，b^a————》得到b，再将b的值赋值给a<br>  a = b^a<br>  console.log(“交换后的a:”+ a,”交换后的b:”+b)</p>
+<pre><code>* 结果如下
+![image.png](https://upload-images.jianshu.io/upload_images/22769532-c2bc2992b530574d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+## 2.下面就开始进入正题，快速排序位运算
+```js
+const arr = [1,2,5,7,2,3,5]
+  let len = arr.length
+  let i = 0
+  var j = 0
+  while(i &lt; len){
+    //外层循环遍历第一行
+    j = i
+    while(j &lt; len){
+      //内层循环遍历i后面的元素，查看是否有比当前元素小的，有的话就交换数据
+      if(arr[j] &lt; arr[i]){
+        arr[i] = arr[i] ^ arr[j]
+        arr[j] = arr[i] ^ arr[j]
+        arr[i] = arr[j] ^ arr[i] 
+      }
+      j++
+    }
+    i++
+  }
+  console.log(arr.toString())</code></pre><ul>
+<li>通过这个题，可以提高原有选择排序的一个效率，位运算是比创建一个新的中间值来保存变量效率要更高。这里也可以回忆一下快速排序的一个实现方式</li>
+</ul>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -793,12 +812,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>算法12(链表)-两两交换链表</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">372</span></p>
+    <p><span class="copy-title">文章标题:</span>22-算法-位运算实现的快速排序算法</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">502</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-07-04, 16:20:11</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-04, 16:21:03</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/04/arithmtic/12-%E9%93%BE%E8%A1%A8/" title="算法12(链表)-两两交换链表">http://yoursite.com/2020/07/04/arithmtic/12-%E9%93%BE%E8%A1%A8/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-08, 11:58:01</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-08, 12:23:31</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/08/arithmtic/22-%E7%AE%97%E6%B3%95-%E4%BD%8D%E8%BF%90%E7%AE%97%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="22-算法-位运算实现的快速排序算法">http://yoursite.com/2020/07/08/arithmtic/22-%E7%AE%97%E6%B3%95-%E4%BD%8D%E8%BF%90%E7%AE%97%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>
