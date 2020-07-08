@@ -6,15 +6,15 @@
   <meta name="keywords" content=" 后端安全 , 授权认证 , SpringSecurity ">
   <meta name="description" content="SpringBoot整合SpringSecurity | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
+<meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
-<meta property="og:title" content="photo">
-<meta property="og:url" content="http://yoursite.com/photo/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="一叶知秋的学习课堂">
-<meta property="og:description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
+<meta property="og:description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-04T05:17:24.000Z">
-<meta property="article:modified_time" content="2020-07-04T05:18:57.906Z">
+<meta property="article:published_time" content="2020-07-04T04:49:26.000Z">
+<meta property="article:modified_time" content="2020-07-04T04:49:26.208Z">
 <meta property="article:author" content="一叶知秋">
 <meta property="article:tag" content="hexo-3搭建的技术生活分享博客">
 <meta name="twitter:card" content="summary">
@@ -151,7 +151,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(29)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(30)</small></div></li>
     
         
             
@@ -163,7 +163,7 @@
     
         
             
-            <li><div data-rel="后端">后端<small>(2)</small></div>
+            <li><div data-rel="后端">后端<small>(3)</small></div>
                 
             </li>
             
@@ -199,8 +199,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="17.3k">
+<input type="hidden" id="yelog_site_posts_number" value="30">
+<input type="hidden" id="yelog_site_word_count" value="17.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -279,6 +279,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>mysql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>shiro</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -427,6 +431,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 后端 "
+           href="/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/"
+           data-tag="后端安全,授权认证,shiro"
+           data-author="" >
+            <span class="post-title" title="SpringBoot整合Shiro安全框架">SpringBoot整合Shiro安全框架</span>
+            <span class="post-date" title="2020-07-08 22:51:45">2020/07/08</span>
+        </a>
         
         <a  class="全部文章 算法 "
            href="/2020/07/08/arithmtic/22-%E7%AE%97%E6%B3%95-%E4%BD%8D%E8%BF%90%E7%AE%97%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
@@ -708,12 +720,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-08 00:46:08'>2020-07-08 00:16</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-08 22:50:35'>2020-07-08 00:16</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:700</span>
+        <span>字数:770</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -743,7 +755,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringSecurity整合到SpringBoot项目中"><span class="toc-text">SpringSecurity整合到SpringBoot项目中</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-在pom-xml中导入SpringSecurity的依赖"><span class="toc-text">1.在pom.xml中导入SpringSecurity的依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-导入thymeleaf模板引擎和静态文件"><span class="toc-text">2.导入thymeleaf模板引擎和静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-编写后端controller"><span class="toc-text">3.编写后端controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-编写配置文件用于映射请求以及用户登录状态，查看不同的权限"><span class="toc-text">4.编写配置文件用于映射请求以及用户登录状态，查看不同的权限</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringSecurity整合到SpringBoot项目中"><span class="toc-text">SpringSecurity整合到SpringBoot项目中</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-在pom-xml中导入SpringSecurity的依赖"><span class="toc-text">1.在pom.xml中导入SpringSecurity的依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-导入thymeleaf模板引擎和静态文件"><span class="toc-text">2.导入thymeleaf模板引擎和静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-编写后端controller"><span class="toc-text">3.编写后端controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-编写配置文件用于映射请求以及用户登录状态，查看不同的权限"><span class="toc-text">4.编写配置文件用于映射请求以及用户登录状态，查看不同的权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-开启spring-boot项目，访问首页，进入登录页"><span class="toc-text">5.开启spring boot项目，访问首页，进入登录页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1因为写了chest来宾用户只有VIP1-的一个权限，所以登录之后只能进行操作VIP1-相关的内容"><span class="toc-text">5.1因为写了chest来宾用户只有VIP1 的一个权限，所以登录之后只能进行操作VIP1 相关的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的"><span class="toc-text">这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -810,28 +822,67 @@ public class RouterController {
 }
 </code></pre>
 <h2 id="4-编写配置文件用于映射请求以及用户登录状态，查看不同的权限"><a href="#4-编写配置文件用于映射请求以及用户登录状态，查看不同的权限" class="headerlink" title="4.编写配置文件用于映射请求以及用户登录状态，查看不同的权限"></a>4.编写配置文件用于映射请求以及用户登录状态，查看不同的权限</h2><ul>
-<li>这个文件夹在config下面<pre><code class="java">package com.cxy.config;
-</code></pre>
-</li>
+<li>这个文件夹在config下面</li>
 </ul>
-<p>import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;<br>import org.springframework.security.config.annotation.web.builders.HttpSecurity;<br>import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;<br>import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;<br>import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;</p>
-<p>@EnableWebSecurity<br>public class SecurityConfig extends WebSecurityConfigurerAdapter {<br>//  授权 这里是链式编程，跟前端中的promise函数有点相像<br>  @Override<br>  protected void configure(HttpSecurity http) throws Exception {<br>    //首页所有人可以访问，功能页具有权限的才能进行访问<br>    http.authorizeRequests().antMatchers(“/“)<br>            .permitAll()<br>            .antMatchers(“/level1/<strong>“).hasRole(“vip1”)<br>            .antMatchers(“/level2/</strong>“).hasRole(“vip2”)<br>            .antMatchers(“/level3/**”).hasRole(“vip3”);<br>    http.formLogin();<br>  }</p>
-<p>//  认证<br>//  要进行密码进行加密<br>//  使用spring security中的password编码格式<br>  @Override<br>  protected void configure(AuthenticationManagerBuilder auth) throws Exception {<br>    //这里应该是从数据库中查找数据<br>    auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())<br>            .withUser(“cxy”).password(new BCryptPasswordEncoder().encode(“123456”)).roles(“vip1”,”vip2”)<br>    .and()<br>    .withUser(“root”).password(new BCryptPasswordEncoder().encode(“123456”)).roles(“vip1”,”vip2”,”vip3”)<br>    .and()<br>    .withUser(“chest”).password(new BCryptPasswordEncoder().encode(“123456”)).roles(“vip1”);<br>  }<br>}</p>
-<pre><code>
-## 5.开启spring boot项目，访问首页，进入登录页
-* 页面地址：http://localhost:8080/login页面如下，这个页面是spring boot做授权的时候默认的一个页面，我们页可以自定义这个页面
-![image.png](https://upload-images.jianshu.io/upload_images/22769532-bdb5e66fc0ad8455.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<pre><code class="java">package com.cxy.config;
 
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-### 5.1因为写了chest来宾用户只有VIP1 的一个权限，所以登录之后只能进行操作VIP1 相关的内容
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+//  授权 这里是链式编程，跟前端中的promise函数有点相像
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    //首页所有人可以访问，功能页具有权限的才能进行访问
+    http.authorizeRequests().antMatchers(&quot;/&quot;)
+            .permitAll()
+            .antMatchers(&quot;/level1/**&quot;).hasRole(&quot;vip1&quot;)
+            .antMatchers(&quot;/level2/**&quot;).hasRole(&quot;vip2&quot;)
+            .antMatchers(&quot;/level3/**&quot;).hasRole(&quot;vip3&quot;);
+    //关闭默认的cfrs防止网站攻击  登出失败的这个
+    http.csrf().disable();
+    //跳转到内置写好的页面 添加前端表单上的username和password属性的别名
+    http.formLogin().loginPage(&quot;/toLogin&quot;).loginProcessingUrl(&quot;/login&quot;)
+            .usernameParameter(&quot;user&quot;)
+            .passwordParameter(&quot;pwd&quot;);
+    //开启注销功能
+    http.logout().logoutSuccessUrl(&quot;/&quot;);
+    //开启记住我功能
+    http.rememberMe().rememberMeParameter(&quot;remember&quot;);
+  }
 
-* level1的操作是正常的
-![image.png](https://upload-images.jianshu.io/upload_images/22769532-6e7d56060540309e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-* level2的操作就是没有授权的
-![image.png](https://upload-images.jianshu.io/upload_images/22769532-ca280edb2ec55bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的
----</code></pre>
+//  认证
+//  要进行密码进行加密
+//  使用spring security中的password编码格式
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    //这里应该是从数据库中查找数据
+    auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+            .withUser(&quot;cxy&quot;).password(new BCryptPasswordEncoder().encode(&quot;123456&quot;)).roles(&quot;vip1&quot;,&quot;vip2&quot;)
+    .and()
+    .withUser(&quot;root&quot;).password(new BCryptPasswordEncoder().encode(&quot;123456&quot;)).roles(&quot;vip1&quot;,&quot;vip2&quot;,&quot;vip3&quot;)
+    .and()
+    .withUser(&quot;chest&quot;).password(new BCryptPasswordEncoder().encode(&quot;123456&quot;)).roles(&quot;vip1&quot;);
+  }
+}
+</code></pre>
+<h2 id="5-开启spring-boot项目，访问首页，进入登录页"><a href="#5-开启spring-boot项目，访问首页，进入登录页" class="headerlink" title="5.开启spring boot项目，访问首页，进入登录页"></a>5.开启spring boot项目，访问首页，进入登录页</h2><ul>
+<li>页面地址：<a href="http://localhost:8080/login页面如下，这个页面是spring" target="_blank" rel="noopener">http://localhost:8080/login页面如下，这个页面是spring</a> boot做授权的时候默认的一个页面，我们页可以自定义这个页面</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/22769532-bdb5e66fc0ad8455.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="5-1因为写了chest来宾用户只有VIP1-的一个权限，所以登录之后只能进行操作VIP1-相关的内容"><a href="#5-1因为写了chest来宾用户只有VIP1-的一个权限，所以登录之后只能进行操作VIP1-相关的内容" class="headerlink" title="5.1因为写了chest来宾用户只有VIP1 的一个权限，所以登录之后只能进行操作VIP1 相关的内容"></a>5.1因为写了chest来宾用户只有VIP1 的一个权限，所以登录之后只能进行操作VIP1 相关的内容</h3><ul>
+<li>level1的操作是正常的</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/22769532-6e7d56060540309e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>level2的操作就是没有授权的</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/22769532-ca280edb2ec55bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的"><a href="#这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的" class="headerlink" title="这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的"></a>这就做到了不同的用户操作不同的内容，而且显示的东西也是不一样的</h2>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
     </div>
@@ -845,10 +896,10 @@ public class RouterController {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>SpringBoot整合SpringSecurity</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">700</span></p>
+    <p><span class="copy-title">字数:</span><span class="post-count">770</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
     <p><span class="copy-title">发布时间:</span>2020-07-08, 00:16:14</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-08, 00:46:08</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-08, 22:50:35</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88SpringSecurity/" title="SpringBoot整合SpringSecurity">http://yoursite.com/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88SpringSecurity/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
