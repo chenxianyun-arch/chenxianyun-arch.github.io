@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法20(递归)-二叉树的深度 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 递归 , 二叉树 , dfs ">
-  <meta name="description" content="算法20(递归)-二叉树的深度 | 一叶知秋的学习课堂">
+  <title>js中的数据类型有哪些 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" js数据类型 ">
+  <meta name="description" content="js中的数据类型有哪些 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -701,9 +701,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/20-递归" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-fontend/js中的基本数据类型有哪些" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法20(递归)-二叉树的深度</h1>
+        <h1 class="article-title">js中的数据类型有哪些</h1>
     
     <div class="article-meta">
         
@@ -713,7 +713,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="大前端">大前端</a>
             
         </span>
         
@@ -721,23 +721,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">递归</a>
-            
-            <a class="color4">二叉树</a>
-            
-            <a class="color4">dfs</a>
+            <a class="color2">js数据类型</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:37:04'>2020-07-04 16:36</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-09 22:36:03'>2020-07-09 21:56</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:259</span>
+        <span>字数:309</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -767,7 +763,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js中的基本数据类型"><span class="toc-text">js中的基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-js中的基本数据类型主要有6种"><span class="toc-text">1 js中的基本数据类型主要有6种</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如果想要在js中判断变量的类型，可以用typeof进行判断"><span class="toc-text">2 如果想要在js中判断变量的类型，可以用typeof进行判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-null，undifined-NaN-symbol-的区别和联系"><span class="toc-text">3 null，undifined, NaN, symbol, 的区别和联系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-null"><span class="toc-text">3.1 null</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-undifined"><span class="toc-text">3.2 undifined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-NaN"><span class="toc-text">3.3 NaN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-symbol"><span class="toc-text">3.3 symbol</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js中的其他数据类型"><span class="toc-text">js中的其他数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-引用数据类型（Object-Array）"><span class="toc-text">4 引用数据类型（Object Array）</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -783,42 +779,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目：</p>
-<p>Given a binary tree, find its maximum depth.</p>
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-<p>Note: A leaf is a node with no children.</p>
-<p>Example:</p>
-<p>Given binary tree [3,9,20,null,null,15,7],</p>
-<pre><code>3</code></pre><p>   / <br>  9  20<br>    /  <br>   15   7<br>return its depth = 3.</p>
-<p>给一个二叉树，将他的最大深求出来并且进行输出<br>1.采用递归的思想，停止递归的条件是根节点没有左子树并且没有右子树，就返回0，<br>2.递归做什么事情，递归左子树，递归右子树，找到两个子树深度最大值，再进行加3.返回的就是两个子树深度最大值加1</p>
-<pre><code class="java">package com.cxy.recursive;
-
-import com.cxy.linkedtable.TreeNode;
-
-import java.util.List;
-
-/**
- * 二叉树的深度优先搜索递归实现
- */
-public class BinaryTreeDepth {
-
-  public int maxDepth(TreeNode root) {
-    if(root == null){return 0;}
-    int leftDeep = maxDepth(root.left);
-    int rightDeep = maxDepth(root.right);
-    return Math.max(leftDeep, rightDeep)+1;
-  }
-
-
-  public static void main(String[] args){
-    TreeNode left = new TreeNode(1, null, null);
-    TreeNode right = new TreeNode(2, null, null);
-    TreeNode root = new TreeNode(0, left, right);
-    int depth = new BinaryTreeDepth().maxDepth(root);
-    System.out.println(depth);
-  }
-
-}</code></pre>
+        <hr>
+<h1 id="js中的基本数据类型"><a href="#js中的基本数据类型" class="headerlink" title="js中的基本数据类型"></a>js中的基本数据类型</h1><h2 id="1-js中的基本数据类型主要有6种"><a href="#1-js中的基本数据类型主要有6种" class="headerlink" title="1 js中的基本数据类型主要有6种"></a>1 js中的基本数据类型主要有6种</h2><ul>
+<li>undifined</li>
+<li>Null </li>
+<li>String </li>
+<li>Number </li>
+<li>Boolean</li>
+<li>Symbol–&gt;ES6出现的语法这是一种特殊的数据类型<h2 id="2-如果想要在js中判断变量的类型，可以用typeof进行判断"><a href="#2-如果想要在js中判断变量的类型，可以用typeof进行判断" class="headerlink" title="2 如果想要在js中判断变量的类型，可以用typeof进行判断"></a>2 如果想要在js中判断变量的类型，可以用typeof进行判断</h2><h2 id="3-null，undifined-NaN-symbol-的区别和联系"><a href="#3-null，undifined-NaN-symbol-的区别和联系" class="headerlink" title="3 null，undifined, NaN, symbol, 的区别和联系"></a>3 null，undifined, NaN, symbol, 的区别和联系</h2><h3 id="3-1-null"><a href="#3-1-null" class="headerlink" title="3.1 null"></a>3.1 null</h3></li>
+<li>我的理解就是对象为null，栈区没有引用指向内存地址，指向的是一个空区域，也可以理解为对象为空<h3 id="3-2-undifined"><a href="#3-2-undifined" class="headerlink" title="3.2 undifined"></a>3.2 undifined</h3></li>
+<li>表示声明了变量但是没有给这个变量赋值,它是js中的一个全局属性<h3 id="3-3-NaN"><a href="#3-3-NaN" class="headerlink" title="3.3 NaN"></a>3.3 NaN</h3></li>
+<li>NaN 是一种特殊的类型（Not A Number）是一种特殊的Number类型<h3 id="3-3-symbol"><a href="#3-3-symbol" class="headerlink" title="3.3 symbol"></a>3.3 symbol</h3></li>
+<li>这个我基本上没怎么用到过，gg了一下，用来创建匿名的对象属性<pre><code class="js">//通过这种方法来进行创建这个对象
+Symbol(&quot;hahaha &quot;)</code></pre>
+<h1 id="js中的其他数据类型"><a href="#js中的其他数据类型" class="headerlink" title="js中的其他数据类型"></a>js中的其他数据类型</h1><h2 id="4-引用数据类型（Object-Array）"><a href="#4-引用数据类型（Object-Array）" class="headerlink" title="4 引用数据类型（Object Array）"></a>4 引用数据类型（Object Array）</h2></li>
+<li>他们的存储方式是通过内存地址进行存储的,如下的内存图所示</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d0049fb3a7841b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image.png"></p>
+<ul>
+<li>内存地址存储在堆区里面，栈里面保存的是堆内存空间内的引用值，也就是对应对象的内存地址</li>
+</ul>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -832,12 +813,12 @@ public class BinaryTreeDepth {
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>算法20(递归)-二叉树的深度</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">259</span></p>
+    <p><span class="copy-title">文章标题:</span>js中的数据类型有哪些</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">309</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-07-04, 16:36:08</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-04, 16:37:04</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/04/arithmtic/20-%E9%80%92%E5%BD%92/" title="算法20(递归)-二叉树的深度">http://yoursite.com/2020/07/04/arithmtic/20-%E9%80%92%E5%BD%92/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-09, 21:56:21</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-09, 22:36:03</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/09/fontend/js%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B/" title="js中的数据类型有哪些">http://yoursite.com/2020/07/09/fontend/js%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>

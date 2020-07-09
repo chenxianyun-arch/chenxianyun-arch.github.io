@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>js中的数据类型有哪些</title>
+      <link href="/2020/07/09/fontend/js%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B/"/>
+      <url>/2020/07/09/fontend/js%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="js中的基本数据类型"><a href="#js中的基本数据类型" class="headerlink" title="js中的基本数据类型"></a>js中的基本数据类型</h1><h2 id="1-js中的基本数据类型主要有6种"><a href="#1-js中的基本数据类型主要有6种" class="headerlink" title="1 js中的基本数据类型主要有6种"></a>1 js中的基本数据类型主要有6种</h2><ul><li>undifined</li><li>Null </li><li>String </li><li>Number </li><li>Boolean</li><li>Symbol–&gt;ES6出现的语法这是一种特殊的数据类型<h2 id="2-如果想要在js中判断变量的类型，可以用typeof进行判断"><a href="#2-如果想要在js中判断变量的类型，可以用typeof进行判断" class="headerlink" title="2 如果想要在js中判断变量的类型，可以用typeof进行判断"></a>2 如果想要在js中判断变量的类型，可以用typeof进行判断</h2><h2 id="3-null，undifined-NaN-symbol-的区别和联系"><a href="#3-null，undifined-NaN-symbol-的区别和联系" class="headerlink" title="3 null，undifined, NaN, symbol, 的区别和联系"></a>3 null，undifined, NaN, symbol, 的区别和联系</h2><h3 id="3-1-null"><a href="#3-1-null" class="headerlink" title="3.1 null"></a>3.1 null</h3></li><li>我的理解就是对象为null，栈区没有引用指向内存地址，指向的是一个空区域，也可以理解为对象为空<h3 id="3-2-undifined"><a href="#3-2-undifined" class="headerlink" title="3.2 undifined"></a>3.2 undifined</h3></li><li>表示声明了变量但是没有给这个变量赋值,它是js中的一个全局属性<h3 id="3-3-NaN"><a href="#3-3-NaN" class="headerlink" title="3.3 NaN"></a>3.3 NaN</h3></li><li>NaN 是一种特殊的类型（Not A Number）是一种特殊的Number类型<h3 id="3-3-symbol"><a href="#3-3-symbol" class="headerlink" title="3.3 symbol"></a>3.3 symbol</h3></li><li>这个我基本上没怎么用到过，gg了一下，用来创建匿名的对象属性<pre><code class="js">//通过这种方法来进行创建这个对象Symbol(&quot;hahaha &quot;)</code></pre><h1 id="js中的其他数据类型"><a href="#js中的其他数据类型" class="headerlink" title="js中的其他数据类型"></a>js中的其他数据类型</h1><h2 id="4-引用数据类型（Object-Array）"><a href="#4-引用数据类型（Object-Array）" class="headerlink" title="4 引用数据类型（Object Array）"></a>4 引用数据类型（Object Array）</h2></li><li>他们的存储方式是通过内存地址进行存储的,如下的内存图所示</li></ul><p><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d0049fb3a7841b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image.png"></p><ul><li>内存地址存储在堆区里面，栈里面保存的是堆内存空间内的引用值，也就是对应对象的内存地址</li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js数据类型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringBoot整合Shiro安全框架</title>
       <link href="/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/"/>
       <url>/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/</url>
