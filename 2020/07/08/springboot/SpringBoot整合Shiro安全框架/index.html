@@ -200,7 +200,7 @@
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="30">
-<input type="hidden" id="yelog_site_word_count" value="17.8k">
+<input type="hidden" id="yelog_site_word_count" value="18.4k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -720,12 +720,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-08 23:14:22'>2020-07-08 22:51</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-09 21:25:33'>2020-07-08 22:51</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:452</span>
+        <span>字数:995</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -755,7 +755,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot整合shiro"><span class="toc-text">SpringBoot整合shiro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-shiro框架是什么"><span class="toc-text">1.shiro框架是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-demo的整体结构"><span class="toc-text">2.demo的整体结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-引入依赖-这个非常的重要"><span class="toc-text">3.引入依赖(这个非常的重要)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-配置ShiroConfig类"><span class="toc-text">4.配置ShiroConfig类</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot整合shiro"><span class="toc-text">SpringBoot整合shiro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-shiro框架是什么"><span class="toc-text">1.shiro框架是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-demo的整体结构"><span class="toc-text">2.demo的整体结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-引入依赖-这个非常的重要"><span class="toc-text">3.引入依赖(这个非常的重要)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-配置ShiroConfig类"><span class="toc-text">4.配置ShiroConfig类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-配置UserRealm对象"><span class="toc-text">4.配置UserRealm对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-IndexController的请求"><span class="toc-text">5.IndexController的请求</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -802,16 +802,39 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Configuration
 public class ShiroConfig {
 
   //主要有三大对象需要整合进来
   //1.shiroFilterFactoryBean
   //2.DefaultWebSecurityManager
+  @Bean
   public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier(&quot;getDefaultWebSecurityManager&quot;) DefaultWebSecurityManager defaultWebSecurityManager){
     //设置安全管理器
     ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
     bean.setSecurityManager(defaultWebSecurityManager);
+    /**
+     * 添加shiro的内置过滤器
+     *
+     */
+//    anoo: 无需认证就可以访问，
+//    authc: 认证了才能进行访问
+//    user： 必须拥有记住我功能才能用
+//    Parm： 拥有某个资源的权限才能进行访问
+//    role: 拥有某个权限才能访问
+    Map&lt;String, String&gt; map = new LinkedHashMap&lt;&gt;();
+//    1.需要授权才能访问
+//    map.put(&quot;/toIndex&quot;,&quot;authc&quot;);
+//    map.put(&quot;/toCatagroy&quot;,&quot;authc&quot;);
+//    2.无须授权就可以访问
+    map.put(&quot;/toIndex&quot;, &quot;authc&quot;);
+
+    //3.拦截页面
+    bean.setFilterChainDefinitionMap(map);
+    bean.setLoginUrl(&quot;/toLogin&quot;);
     return bean;
   }
 
@@ -819,7 +842,6 @@ public class ShiroConfig {
   public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier(&quot;userRealm&quot;) UserRealm realm){
     DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
     //关联userRealm
-
     manager.setRealm(realm);
     return manager;
   }
@@ -830,6 +852,7 @@ public class ShiroConfig {
   }
 }
 
+
 /**
 *这个是从下往上进行配置的，主要有这几个主要的对象
 
@@ -837,33 +860,122 @@ public class ShiroConfig {
 2.DefaultWebSecurityManager
 3.ShiroFilterFactoryBean
 
-*/
+*/</code></pre>
+<h2 id="4-配置UserRealm对象"><a href="#4-配置UserRealm对象" class="headerlink" title="4.配置UserRealm对象"></a>4.配置UserRealm对象</h2><pre><code class="java">package com.cxy.config;
 
-
-## 4.配置UserRealm对象
-```java
-package com.cxy.config;
-
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import com.cxy.pojo.User;
+import com.cxy.service.UserService;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserRealm  extends AuthorizingRealm {
+  @Autowired
+  UserService userService;
   //授权
   @Override
   protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-    System.out.println(&quot;执行了授权&quot;);
+    System.out.println(&quot;执行了授权=》doGetAuthorizationInfo&quot;);
     return null;
   }
 
   //认证
   @Override
   protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-    System.out.println(&quot;执行了认证&quot;);
-    return null;
+    System.out.println(&quot;执行了认证=》doGetAuthenticationInfo&quot;);
+//    String username = &quot;root&quot;;
+//    String password = &quot;123456&quot;;
+//    将传递过来的token转换成获得令牌的token
+
+    UsernamePasswordToken userToken = (UsernamePasswordToken) authenticationToken;
+
+   User user = userService.queryUserByStringName(userToken.getUsername());
+    if(user == null){
+      //没有这个人
+      return null;//return null 的作用是返回到配置信息里面的异常里面
+    }
+//    if(!username.equals(userToken.getUsername())){
+//      return null;
+//    }
+
+    return new SimpleAuthenticationInfo(&quot;&quot;,user.getPassword(),&quot;&quot;);
+  }
+}
+
+</code></pre>
+<h2 id="5-IndexController的请求"><a href="#5-IndexController的请求" class="headerlink" title="5.IndexController的请求"></a>5.IndexController的请求</h2><pre><code class="java">package com.cxy.controller;
+
+import com.cxy.pojo.User;
+import com.cxy.service.UserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+@Controller
+public class IndexController {
+
+  @Autowired
+  private UserService userService;
+
+  @RequestMapping({&quot;/&quot;,&quot;/index&quot;,&quot;index.html&quot;})
+  public String toIndex(Model model){
+    model.addAttribute(&quot;msg&quot;, &quot;hello,shiro&quot;);
+    return &quot;index&quot;;
+  }
+  @RequestMapping(&quot;/toIndex&quot;)
+  public String toIndex1(Model model){
+    model.addAttribute(&quot;msg&quot;, &quot;hello,首页&quot;);
+    return &quot;/user/toIndex&quot;;
+  }
+  @RequestMapping(&quot;/toCatagroy&quot;)
+  public String toIndex2(Model model){
+    model.addAttribute(&quot;msg&quot;, &quot;hello,shiro&quot;);
+    return &quot;/user/toCatagroy&quot;;
+  }
+
+  @RequestMapping(&quot;/toLogin&quot;)
+  public String toLogin(Model model){
+    model.addAttribute(&quot;msg&quot;, &quot;hello,shiro&quot;);
+    return &quot;login&quot;;
+  }
+
+
+  @RequestMapping(&quot;/login&quot;)
+  public String login(String username,String password ,boolean rememberMe ,Model model){
+    Subject subject = SecurityUtils.getSubject();
+    UsernamePasswordToken token = new UsernamePasswordToken(username,password,rememberMe);
+    System.out.println(username + &quot;+&quot; +password);
+    try{
+//      用户名判断成功
+      subject.login(token);
+      return &quot;index&quot;;
+    }catch (UnknownAccountException e){
+      model.addAttribute(&quot;msg&quot;, &quot;没有此账户&quot;);
+      return &quot;login&quot;;
+    }catch (IncorrectCredentialsException e){
+      model.addAttribute(&quot;msg&quot;, &quot;密码错误&quot;);
+      return &quot;login&quot;;
+    }
+  }
+  @ResponseBody
+  @RequestMapping(&quot;/test&quot;)
+  public List&lt;User&gt; test(Model model){
+    model.addAttribute(&quot;msg&quot;, &quot;hello,shiro&quot;);
+    User user = new User();
+    user.setName(&quot;cxy&quot;);
+    List&lt;User&gt; list = userService.queryUserByName(user);
+    return list;
   }
 }
 </code></pre>
@@ -881,10 +993,10 @@ public class UserRealm  extends AuthorizingRealm {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>SpringBoot整合Shiro安全框架</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">452</span></p>
+    <p><span class="copy-title">字数:</span><span class="post-count">995</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
     <p><span class="copy-title">发布时间:</span>2020-07-08, 22:51:45</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-08, 23:14:22</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-09, 21:25:33</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" title="SpringBoot整合Shiro安全框架">http://yoursite.com/2020/07/08/springboot/SpringBoot%E6%95%B4%E5%90%88Shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
