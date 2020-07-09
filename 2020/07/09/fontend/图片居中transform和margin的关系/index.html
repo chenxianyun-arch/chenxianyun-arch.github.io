@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法19(递归)-有效的括号 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 递归 , 循环 ">
-  <meta name="description" content="算法19(递归)-有效的括号 | 一叶知秋的学习课堂">
+  <title>图片居中transform和margin的关系 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 图片居中 , transform , margin ">
+  <meta name="description" content="图片居中transform和margin的关系 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -721,9 +721,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/19-递归" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-fontend/图片居中transform和margin的关系" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法19(递归)-有效的括号</h1>
+        <h1 class="article-title">图片居中transform和margin的关系</h1>
     
     <div class="article-meta">
         
@@ -733,7 +733,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="大前端">大前端</a>
             
         </span>
         
@@ -741,21 +741,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">递归</a>
+            <a class="color5">图片居中</a>
             
-            <a class="color3">循环</a>
+            <a class="color5">transform</a>
+            
+            <a class="color2">margin</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:35:26'>2020-07-04 16:34</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-09 22:45:30'>2020-07-09 22:39</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:425</span>
+        <span>字数:68</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -785,7 +787,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图片居中transform和margin的用法"><span class="toc-text">图片居中transform和margin的用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-transfrom是相对自己本身的宽度进行居中"><span class="toc-text">1.transfrom是相对自己本身的宽度进行居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-margin是相对其父元素的宽度进行移动"><span class="toc-text">2.margin是相对其父元素的宽度进行移动</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -801,32 +803,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目：<br>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-<p>For example, given n = 3, a solution set is:</p>
-<p>[<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]</p>
-<p>一般看到这种比较具有对称性的一般都是可以采用递归思路进行求解的，主要是停止的状态是在什么地方，函数的参数设计，函数返回值以及涉及到里面递归调用的关系，一个小的子问题的理解，怎样理解这一个子问题是一个非常麻烦的事情，在这道题中，每一个()()()这种问题，都是()这种问题的的一个组合问题，在递归函数中，只需要找到函数的一个子解的终止条件，在这里，子解的终止条件就是当左括号和右括号都没有的时候，就可以进行返回操作，还有就是定义这个函数参数是(int left , int right,String item)分别表示，左右括号数量，每一次递归所加进来的字符串是哪种，具体的代码入下</p>
-<pre><code class="java"> //用于存储的集合
-  List&lt;String&gt; res = new ArrayList&lt;&gt;();
-  public List&lt;String&gt; generateParenthesis(int n) {
-    helper(n, n, &quot;&quot;);
-    return res;
-  }
-  private void helper(int left , int right , String curStr){
-    if(left == 0 &amp;&amp; right == 0 ) {
-      res.add(curStr);
-      return;
-    }
-    //1.结束条件，即没有左括号，也没有右括号，就返回，并将结果加入res
-    //2.函数调用,还有左括号，就添加左括号
-    if(left &gt; 0) {
-      helper( left - 1, right, curStr + &quot;(&quot; );
-    }
-    if(right &gt; left) {
-      helper(left, right - 1, curStr + &quot;)&quot; );
-    }
-  }
-</code></pre>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/generate-parentheses" target="_blank" rel="noopener">https://leetcode-cn.com/problems/generate-parentheses</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+        <hr>
+<h1 id="图片居中transform和margin的用法"><a href="#图片居中transform和margin的用法" class="headerlink" title="图片居中transform和margin的用法"></a>图片居中transform和margin的用法</h1><h2 id="1-transfrom是相对自己本身的宽度进行居中"><a href="#1-transfrom是相对自己本身的宽度进行居中" class="headerlink" title="1.transfrom是相对自己本身的宽度进行居中"></a>1.transfrom是相对自己本身的宽度进行居中</h2><ul>
+<li>transfrom: -50%</li>
+<li><strong>表示向左移动自己本身的一半*</strong><h2 id="2-margin是相对其父元素的宽度进行移动"><a href="#2-margin是相对其父元素的宽度进行移动" class="headerlink" title="2.margin是相对其父元素的宽度进行移动"></a>2.margin是相对其父元素的宽度进行移动</h2></li>
+<li>margin-left: -50%;</li>
+<li><strong>移动相对父元素的一半*</strong></li>
+</ul>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -840,12 +824,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>算法19(递归)-有效的括号</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">425</span></p>
+    <p><span class="copy-title">文章标题:</span>图片居中transform和margin的关系</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">68</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-07-04, 16:34:39</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-04, 16:35:26</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/04/arithmtic/19-%E9%80%92%E5%BD%92/" title="算法19(递归)-有效的括号">http://yoursite.com/2020/07/04/arithmtic/19-%E9%80%92%E5%BD%92/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-09, 22:39:53</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-09, 22:45:30</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/09/fontend/%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%ADtransform%E5%92%8Cmargin%E7%9A%84%E5%85%B3%E7%B3%BB/" title="图片居中transform和margin的关系">http://yoursite.com/2020/07/09/fontend/%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%ADtransform%E5%92%8Cmargin%E7%9A%84%E5%85%B3%E7%B3%BB/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>

@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>图片居中transform和margin的关系</title>
+      <link href="/2020/07/09/fontend/%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%ADtransform%E5%92%8Cmargin%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
+      <url>/2020/07/09/fontend/%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%ADtransform%E5%92%8Cmargin%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="图片居中transform和margin的用法"><a href="#图片居中transform和margin的用法" class="headerlink" title="图片居中transform和margin的用法"></a>图片居中transform和margin的用法</h1><h2 id="1-transfrom是相对自己本身的宽度进行居中"><a href="#1-transfrom是相对自己本身的宽度进行居中" class="headerlink" title="1.transfrom是相对自己本身的宽度进行居中"></a>1.transfrom是相对自己本身的宽度进行居中</h2><ul><li>transfrom: -50%</li><li><strong>表示向左移动自己本身的一半*</strong><h2 id="2-margin是相对其父元素的宽度进行移动"><a href="#2-margin是相对其父元素的宽度进行移动" class="headerlink" title="2.margin是相对其父元素的宽度进行移动"></a>2.margin是相对其父元素的宽度进行移动</h2></li><li>margin-left: -50%;</li><li><strong>移动相对父元素的一半*</strong></li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图片居中 </tag>
+            
+            <tag> transform </tag>
+            
+            <tag> margin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js中的数据类型有哪些</title>
       <link href="/2020/07/09/fontend/js%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B/"/>
       <url>/2020/07/09/fontend/js%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B/</url>
