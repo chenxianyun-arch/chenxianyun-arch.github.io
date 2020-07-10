@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>cookie_sessionStorage_localStorage的区别 </title>
+      <link href="/2020/07/10/fontend/cookie-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+      <url>/2020/07/10/fontend/cookie-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1 cookie"></a>1 cookie</h2><ul><li>cookie主要是服务器来设置，前端存储，存储大小为4k,主要是保存用户的一些登录信息，每次用户登录的时候都会拿这个cookie去服务器比对是否过期，只能被同源的请求访问到<h2 id="2-sessionStorage"><a href="#2-sessionStorage" class="headerlink" title="2 sessionStorage"></a>2 sessionStorage</h2></li><li>sessionStorage主要是从后端session演化而来的，主要是保存服务器与前端保持会话中的一些信息，大小为5m左右，也是同源的请求才能被访问到，如果浏览器关闭，就代表会话结束<h2 id="3-localStorage"><a href="#3-localStorage" class="headerlink" title="3 localStorage"></a>3 localStorage</h2></li><li>localStorage是存储用户的的信息，与sessionStorage不同的是，只有通过手动删除的办法才能让它在前端页面中删除。大小5m ，同样也是同源请求才能被访问</li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端存储 </tag>
+            
+            <tag> cookie </tag>
+            
+            <tag> sessionStorage </tag>
+            
+            <tag> localStorage </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图片居中transform和margin的关系</title>
       <link href="/2020/07/09/fontend/%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%ADtransform%E5%92%8Cmargin%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
       <url>/2020/07/09/fontend/%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%ADtransform%E5%92%8Cmargin%E7%9A%84%E5%85%B3%E7%B3%BB/</url>

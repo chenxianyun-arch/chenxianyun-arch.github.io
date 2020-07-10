@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法08-盛最多水的容器 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 栈 , 动态规划 , 暴力求解 ">
-  <meta name="description" content="算法08-盛最多水的容器 | 一叶知秋的学习课堂">
+  <title>cookie_sessionStorage_localStorage的区别  | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" 前端存储 , cookie , sessionStorage , localStorage ">
+  <meta name="description" content="cookie_sessionStorage_localStorage的区别  | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="List&lt;String&gt; res &#x3D; new ArrayList&lt;&gt;();   public List&lt;String&gt; generateParenthesis(int n) {     helper(n, n, &quot;&quot;);     return res;   }   private void helper(int left , int rig">
 <meta property="og:type" content="website">
@@ -745,9 +745,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/08" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-fontend/cookie-sessionStorage-localStorage的区别" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法08-盛最多水的容器</h1>
+        <h1 class="article-title">cookie_sessionStorage_localStorage的区别 </h1>
     
     <div class="article-meta">
         
@@ -757,7 +757,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="大前端">大前端</a>
             
         </span>
         
@@ -765,23 +765,25 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">栈</a>
+            <a class="color5">前端存储</a>
             
-            <a class="color5">动态规划</a>
+            <a class="color2">cookie</a>
             
-            <a class="color5">暴力求解</a>
+            <a class="color5">sessionStorage</a>
+            
+            <a class="color3">localStorage</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:13:05'>2020-07-04 16:11</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-10 23:43:41'>2020-07-10 23:35</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.6k</span>
+        <span>字数:197</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -811,7 +813,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cookie"><span class="toc-text">1 cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-sessionStorage"><span class="toc-text">2 sessionStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-localStorage"><span class="toc-text">3 localStorage</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -827,91 +829,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 题目：给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。<br>图如下：摘抄自leetcode<br><img src="https://upload-images.jianshu.io/upload_images/22769532-2320fc47f37e7251.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>输入：[1,8,6,2,5,4,8,3,7]，输出：49</p>
-<p><strong><em>解法1</em></strong>：.既然给了我们一个数组，而且是求最大的盛水容量，这就避不开遍历循环，利用穷举法进行逐个循环。我们采用i，j下标进行循环遍历，求出最小高度和他们之间的宽度，长*宽就可以求出及具体的体积。这种方法也称为暴力解法。下面给出具体的代码。</p>
-<pre><code class="java">package com.cxy.array;
-
-public class MaxArea {
-  public static int maxArea() {
-    int[] height = new int[]{1,8,6,2,5,4,8,3,7};
-    int res = 0;
-    for(int i=0; i&lt;height.length; i++){
-      int first = height[i];
-      for(int j=i+1; j&lt;height.length; j++){
-        //求出对应的距离
-        int width = j-i;
-        //下一个元素的高度
-        int next = height[j];
-        //求出最小高度
-        int minHeight = Math.min(first,next);
-         //每次循环将最大的值覆盖掉前面的值
-        res = Math.max(minHeight*width,res);
-      }
-    }
-     //返回值
-    return res;
-  }
-  //测试代码
-  public static void main(String[] args) {
-    int i = MaxArea.maxArea();
-    System.out.println(i);
-  }
-}</code></pre>
-<p>分析时间复杂度:O(n2) 空间复杂度O(n)，如果数据量更多的话，我们消耗的资源将会更多。<br><strong><em>解法2</em></strong>：采用双指针进行动态的求解，其实是穷举法的演变，只是一个指针i,一个指针j，分别指向数组开始和结尾。在这个问题中，影响盛水多少一个是高度，一个是宽度，求最大值，那就宽度 和 两边指针对应的最小值要最大。如果左边指针固定，right[j]&gt;left[i]，如果我们移动右指针的话，下一次的体积一定会比当前小（因为我们已经假设right[j]&gt;left[i]），因为在左指针不动的情况下，右边移动，导致宽度变小，下一次一定比当前小。所以思路就出来了<br>思路：<br>  if(right[j]&gt;left[i]){移动左指针(i++)}else{移动右指针(j–)}<br>代码如下</p>
-<pre><code class="java">package com.cxy.array;
-
-
-/**
- * 双指针法实现装最多水的体积
- * 给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为
- *  (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
- * 说明：你不能倾斜容器，且 n 的值至少为 2。
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/container-with-most-water
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
-public class MaxArea2 {
-  public static int maxArea() {
-    int[] height = new int[]{1,8,6,2,5,4,8,3,7};
-    //指向最右边的指针   和     结果
-    int j = height.length-1,res = 0;
-    for(int i=0;i&lt;height.length;){
-      if(i == j){
-        break;
-      }
-      //求出两边睡得长度更小，谁小谁就移动指针
-      int minH = Math.min(height[i],height[j]);
-      //将结果与上一次循环出来的结果进行比较，选出最大的一个
-      res = Math.max(res,minH*(j-i));
-      System.out.println(&quot;计算结果为：&quot;+res+&quot;  当给的j值：&quot;+j+&quot;当前的最小高度为：&quot;+minH+&quot; 中间的长度为&quot;+(j-i));
-      if(height[i]&lt;height[j]){
-        i++;
-      }else {
-        j--;
-      }
-    }
-    return res;
-  }
-
-  public static void main(String[] args) {
-    int i = MaxArea2.maxArea();
-    System.out.println(i);
-  }
-}</code></pre>
-<p>打印的结果(可以结合代码和分析进行查看)</p>
-<pre><code>&quot;C:\Program Files\Java\jdk1.8.0_162\bin\java.exe&quot; &quot;-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\lib\idea_rt.jar=54251:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\bin&quot; -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_162\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\rt.jar;D:\IdeaWorkSpace\Algorithms\JinDianSuanFa\out\production\JinDianSuanFa;D:\mvnrep\junit\junit\4.12\junit-4.12.jar;D:\mvnrep\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\mvnrep\org\jetbrains\annotations\17.0.0\annotations-17.0.0.jar&quot; com.cxy.array.MaxArea2
-计算结果为：8  当给的j值：8当前的最小高度为：1 中间的长度为8
-计算结果为：49  当给的j值：8当前的最小高度为：7 中间的长度为7
-计算结果为：49  当给的j值：7当前的最小高度为：3 中间的长度为6
-计算结果为：49  当给的j值：6当前的最小高度为：8 中间的长度为5
-计算结果为：49  当给的j值：5当前的最小高度为：4 中间的长度为4
-计算结果为：49  当给的j值：4当前的最小高度为：5 中间的长度为3
-计算结果为：49  当给的j值：3当前的最小高度为：2 中间的长度为2
-计算结果为：49  当给的j值：2当前的最小高度为：6 中间的长度为1
-49
-
-Process finished with exit code 0</code></pre><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/container-with-most-water" target="_blank" rel="noopener">https://leetcode-cn.com/problems/container-with-most-water</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+        <hr>
+<h2 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1 cookie"></a>1 cookie</h2><ul>
+<li>cookie主要是服务器来设置，前端存储，存储大小为4k,主要是保存用户的一些登录信息，每次用户登录的时候都会拿这个cookie去服务器比对是否过期，只能被同源的请求访问到<h2 id="2-sessionStorage"><a href="#2-sessionStorage" class="headerlink" title="2 sessionStorage"></a>2 sessionStorage</h2></li>
+<li>sessionStorage主要是从后端session演化而来的，主要是保存服务器与前端保持会话中的一些信息，大小为5m左右，也是同源的请求才能被访问到，如果浏览器关闭，就代表会话结束<h2 id="3-localStorage"><a href="#3-localStorage" class="headerlink" title="3 localStorage"></a>3 localStorage</h2></li>
+<li>localStorage是存储用户的的信息，与sessionStorage不同的是，只有通过手动删除的办法才能让它在前端页面中删除。大小5m ，同样也是同源请求才能被访问</li>
+</ul>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -925,12 +849,12 @@ Process finished with exit code 0</code></pre><p>来源：力扣（LeetCode）<b
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>算法08-盛最多水的容器</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">1.6k</span></p>
+    <p><span class="copy-title">文章标题:</span>cookie_sessionStorage_localStorage的区别 </p>
+    <p><span class="copy-title">字数:</span><span class="post-count">197</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-07-04, 16:11:20</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-04, 16:13:05</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/04/arithmtic/08/" title="算法08-盛最多水的容器">http://yoursite.com/2020/07/04/arithmtic/08/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-10, 23:35:28</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-10, 23:43:41</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/10/fontend/cookie-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/" title="cookie_sessionStorage_localStorage的区别 ">http://yoursite.com/2020/07/10/fontend/cookie-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>
