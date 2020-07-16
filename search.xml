@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>浏览器端常见的存储技术以及区别</title>
+      <link href="/2020/07/17/fontend/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF%E4%BB%A5%E5%8F%8A%E5%8C%BA%E5%88%AB/"/>
+      <url>/2020/07/17/fontend/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF%E4%BB%A5%E5%8F%8A%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="1-常见的浏览器端存储技术"><a href="#1-常见的浏览器端存储技术" class="headerlink" title="1.常见的浏览器端存储技术"></a>1.常见的浏览器端存储技术</h1><h2 id="1-1-cookie-sessionStorage-localStorage"><a href="#1-1-cookie-sessionStorage-localStorage" class="headerlink" title="1.1 cookie sessionStorage localStorage"></a>1.1 cookie sessionStorage localStorage</h2><ul><li>这是主要的几种前端存储数据的几种技术<h1 id="2-有什么不同"><a href="#2-有什么不同" class="headerlink" title="2.有什么不同"></a>2.有什么不同</h1><pre><code class="java">              是否同源            作用                大小            相同点                生命周期cookie            是         网站为了标识用户身份       4k              字符串类型k-v对       在没设置过期和删除就一直在浏览器中</code></pre></li></ul><p>sessionStorage    是         存储比cookie大点的数据     5m+             …..               在前端与后台进行会话的过程中，一直存在</p><p>localStorage      是         跟sessionStorage差不多     5m+             ….                除非手动删除，不然不会丢失</p><pre><code>* 上面就是我参照我学的一些东西进行的归纳和总结---</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cookie </tag>
+            
+            <tag> sessionStorage </tag>
+            
+            <tag> localStorage </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>选择排序算法</title>
       <link href="/2020/07/11/arithmtic/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
       <url>/2020/07/11/arithmtic/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
