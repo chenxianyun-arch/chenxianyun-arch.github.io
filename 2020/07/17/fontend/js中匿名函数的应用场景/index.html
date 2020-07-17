@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>算法08-盛最多水的容器 | 一叶知秋的学习课堂</title>
-  <meta name="keywords" content=" 栈 , 动态规划 , 暴力求解 ">
-  <meta name="description" content="算法08-盛最多水的容器 | 一叶知秋的学习课堂">
+  <title>js中匿名函数的应用场景 | 一叶知秋的学习课堂</title>
+  <meta name="keywords" content=" js , 基本语法 ">
+  <meta name="description" content="js中匿名函数的应用场景 | 一叶知秋的学习课堂">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一个分享技术和生活的博客系统，托管到GitHub下面">
 <meta property="og:type" content="website">
@@ -801,9 +801,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-arithmtic/08" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-fontend/js中匿名函数的应用场景" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">算法08-盛最多水的容器</h1>
+        <h1 class="article-title">js中匿名函数的应用场景</h1>
     
     <div class="article-meta">
         
@@ -813,7 +813,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="大前端">大前端</a>
             
         </span>
         
@@ -821,23 +821,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">栈</a>
+            <a class="color3">js</a>
             
-            <a class="color5">动态规划</a>
-            
-            <a class="color5">暴力求解</a>
+            <a class="color5">基本语法</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:13:05'>2020-07-04 16:11</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-18 00:50:01'>2020-07-17 23:54</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.6k</span>
+        <span>字数:407</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -867,7 +865,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js中匿名函数的使用场景"><span class="toc-text">js中匿名函数的使用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-绑定事件"><span class="toc-text">1.绑定事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-绑定对象上面"><span class="toc-text">2.绑定对象上面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数表达式在函数上的应用"><span class="toc-text">3.函数表达式在函数上的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-回调函数的方式"><span class="toc-text">4.回调函数的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-返回函数的方式"><span class="toc-text">5.返回函数的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-模仿块级作用域"><span class="toc-text">6.模仿块级作用域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以上就是闭包和匿名函数的区别"><span class="toc-text">以上就是闭包和匿名函数的区别</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -883,91 +881,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 题目：给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。<br>图如下：摘抄自leetcode<br><img src="https://upload-images.jianshu.io/upload_images/22769532-2320fc47f37e7251.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>输入：[1,8,6,2,5,4,8,3,7]，输出：49</p>
-<p><strong><em>解法1</em></strong>：.既然给了我们一个数组，而且是求最大的盛水容量，这就避不开遍历循环，利用穷举法进行逐个循环。我们采用i，j下标进行循环遍历，求出最小高度和他们之间的宽度，长*宽就可以求出及具体的体积。这种方法也称为暴力解法。下面给出具体的代码。</p>
-<pre><code class="java">package com.cxy.array;
-
-public class MaxArea {
-  public static int maxArea() {
-    int[] height = new int[]{1,8,6,2,5,4,8,3,7};
-    int res = 0;
-    for(int i=0; i&lt;height.length; i++){
-      int first = height[i];
-      for(int j=i+1; j&lt;height.length; j++){
-        //求出对应的距离
-        int width = j-i;
-        //下一个元素的高度
-        int next = height[j];
-        //求出最小高度
-        int minHeight = Math.min(first,next);
-         //每次循环将最大的值覆盖掉前面的值
-        res = Math.max(minHeight*width,res);
-      }
-    }
-     //返回值
-    return res;
+        <hr>
+<h1 id="js中匿名函数的使用场景"><a href="#js中匿名函数的使用场景" class="headerlink" title="js中匿名函数的使用场景"></a>js中匿名函数的使用场景</h1><h2 id="1-绑定事件"><a href="#1-绑定事件" class="headerlink" title="1.绑定事件"></a>1.绑定事件</h2><pre><code class="javascript">//1. 获取元素保存到变量里面
+ var btn = document.getElementById(&#39;mybtn&#39;)
+//2. 给变量添加点击事件，后面的function是没有名字的，就叫做匿名函数
+ btn.onclick = function () {  
+  alert(&quot;点击了按钮&quot;);
+ }</code></pre>
+<h2 id="2-绑定对象上面"><a href="#2-绑定对象上面" class="headerlink" title="2.绑定对象上面"></a>2.绑定对象上面</h2><pre><code class="javascript">// 1.匿名函数在对象中的应用
+var obj = {
+  name: &quot;陈贤云&quot;,
+  age: 18,
+  // 2.此处函数没有名字，但是前面有规定
+  sayHello:function(){
+    console.log(&quot;哈哈哈&quot;);
   }
-  //测试代码
-  public static void main(String[] args) {
-    int i = MaxArea.maxArea();
-    System.out.println(i);
-  }
-}</code></pre>
-<p>分析时间复杂度:O(n2) 空间复杂度O(n)，如果数据量更多的话，我们消耗的资源将会更多。<br><strong><em>解法2</em></strong>：采用双指针进行动态的求解，其实是穷举法的演变，只是一个指针i,一个指针j，分别指向数组开始和结尾。在这个问题中，影响盛水多少一个是高度，一个是宽度，求最大值，那就宽度 和 两边指针对应的最小值要最大。如果左边指针固定，right[j]&gt;left[i]，如果我们移动右指针的话，下一次的体积一定会比当前小（因为我们已经假设right[j]&gt;left[i]），因为在左指针不动的情况下，右边移动，导致宽度变小，下一次一定比当前小。所以思路就出来了<br>思路：<br>  if(right[j]&gt;left[i]){移动左指针(i++)}else{移动右指针(j–)}<br>代码如下</p>
-<pre><code class="java">package com.cxy.array;
+}
+// 3.调用这个方法
+obj.sayHello()</code></pre>
+<h2 id="3-函数表达式在函数上的应用"><a href="#3-函数表达式在函数上的应用" class="headerlink" title="3.函数表达式在函数上的应用"></a>3.函数表达式在函数上的应用</h2><pre><code class="javascript">// 函数表达式上面的应用
+var func = function(){
+  //上面这个函数没有名字，但是有变量名字为func
+  console.log(&quot;func打印了&quot;);
+}
 
+func()</code></pre>
+<h2 id="4-回调函数的方式"><a href="#4-回调函数的方式" class="headerlink" title="4.回调函数的方式"></a>4.回调函数的方式</h2><pre><code class="javascript">// 4.回调函数的方式
+setInterval( function(){
+  console.log(&quot;哈哈哈&quot;);
+}, 1000)</code></pre>
+<h2 id="5-返回函数的方式"><a href="#5-返回函数的方式" class="headerlink" title="5.返回函数的方式"></a>5.返回函数的方式</h2><pre><code class="javascript">function test(){
+  // 这里返回一个函数，返回的就是一个匿名函数
+ return function(){
+   return &quot;哈哈&quot;
+ }
+}
+// 调用函数里面返回的函数
+console.log(test()());
+test()
+</code></pre>
+<h2 id="6-模仿块级作用域"><a href="#6-模仿块级作用域" class="headerlink" title="6.模仿块级作用域"></a>6.模仿块级作用域</h2><ul>
+<li>演示的是没有函数作用域的情况<pre><code class="javascript">if(1 === 1){
+// a为全局变量
+var b = 1
+}
+console.log(b)//b = 1,如果有函数作用域的话输出为undifined
 
-/**
- * 双指针法实现装最多水的体积
- * 给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为
- *  (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
- * 说明：你不能倾斜容器，且 n 的值至少为 2。
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/container-with-most-water
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
-public class MaxArea2 {
-  public static int maxArea() {
-    int[] height = new int[]{1,8,6,2,5,4,8,3,7};
-    //指向最右边的指针   和     结果
-    int j = height.length-1,res = 0;
-    for(int i=0;i&lt;height.length;){
-      if(i == j){
-        break;
-      }
-      //求出两边睡得长度更小，谁小谁就移动指针
-      int minH = Math.min(height[i],height[j]);
-      //将结果与上一次循环出来的结果进行比较，选出最大的一个
-      res = Math.max(res,minH*(j-i));
-      System.out.println(&quot;计算结果为：&quot;+res+&quot;  当给的j值：&quot;+j+&quot;当前的最小高度为：&quot;+minH+&quot; 中间的长度为&quot;+(j-i));
-      if(height[i]&lt;height[j]){
-        i++;
-      }else {
-        j--;
-      }
-    }
-    return res;
-  }
-
-  public static void main(String[] args) {
-    int i = MaxArea2.maxArea();
-    System.out.println(i);
-  }
-}</code></pre>
-<p>打印的结果(可以结合代码和分析进行查看)</p>
-<pre><code>&quot;C:\Program Files\Java\jdk1.8.0_162\bin\java.exe&quot; &quot;-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\lib\idea_rt.jar=54251:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1.4\bin&quot; -Dfile.encoding=UTF-8 -classpath &quot;C:\Program Files\Java\jdk1.8.0_162\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\rt.jar;D:\IdeaWorkSpace\Algorithms\JinDianSuanFa\out\production\JinDianSuanFa;D:\mvnrep\junit\junit\4.12\junit-4.12.jar;D:\mvnrep\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\mvnrep\org\jetbrains\annotations\17.0.0\annotations-17.0.0.jar&quot; com.cxy.array.MaxArea2
-计算结果为：8  当给的j值：8当前的最小高度为：1 中间的长度为8
-计算结果为：49  当给的j值：8当前的最小高度为：7 中间的长度为7
-计算结果为：49  当给的j值：7当前的最小高度为：3 中间的长度为6
-计算结果为：49  当给的j值：6当前的最小高度为：8 中间的长度为5
-计算结果为：49  当给的j值：5当前的最小高度为：4 中间的长度为4
-计算结果为：49  当给的j值：4当前的最小高度为：5 中间的长度为3
-计算结果为：49  当给的j值：3当前的最小高度为：2 中间的长度为2
-计算结果为：49  当给的j值：2当前的最小高度为：6 中间的长度为1
-49
-
-Process finished with exit code 0</code></pre><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/container-with-most-water" target="_blank" rel="noopener">https://leetcode-cn.com/problems/container-with-most-water</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+</code></pre>
+</li>
+</ul>
+<p>for(var b = 1; b &lt; 3;b++){<br>  console.log(“当前的变量为：”+ b);<br>}</p>
+<p>console.log(“执行完之后的b:”+b);</p>
+<pre><code>* 用匿名函数（相当于闭包的方式来进行模拟）
+```javascript
+function func(){
+  (function(){
+    var a = 1
+  })()
+  // 报错，not undifine
+  console.log(a);
+}
+// 报错，没法访问函数内部的参数
+func().a</code></pre><h1 id="以上就是闭包和匿名函数的区别"><a href="#以上就是闭包和匿名函数的区别" class="headerlink" title="以上就是闭包和匿名函数的区别"></a>以上就是闭包和匿名函数的区别</h1><hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1371769065@qq.com </span>
@@ -981,12 +956,12 @@ Process finished with exit code 0</code></pre><p>来源：力扣（LeetCode）<b
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>算法08-盛最多水的容器</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">1.6k</span></p>
+    <p><span class="copy-title">文章标题:</span>js中匿名函数的应用场景</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">407</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="一叶知秋">一叶知秋</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-07-04, 16:11:20</p>
-    <p><span class="copy-title">最后更新:</span>2020-07-04, 16:13:05</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/04/arithmtic/08/" title="算法08-盛最多水的容器">http://yoursite.com/2020/07/04/arithmtic/08/</a>
+    <p><span class="copy-title">发布时间:</span>2020-07-17, 23:54:12</p>
+    <p><span class="copy-title">最后更新:</span>2020-07-18, 00:50:01</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/07/17/fontend/js%E4%B8%AD%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" title="js中匿名函数的应用场景">http://yoursite.com/2020/07/17/fontend/js%E4%B8%AD%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
     </p>
