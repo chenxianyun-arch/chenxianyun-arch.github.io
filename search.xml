@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>深入理解js闭包</title>
+      <link href="/2020/07/19/fontend/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E9%97%AD%E5%8C%85/"/>
+      <url>/2020/07/19/fontend/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E9%97%AD%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="深入理解js闭包"><a href="#深入理解js闭包" class="headerlink" title="深入理解js闭包"></a>深入理解js闭包</h1><h2 id="1-首先我们在解决这个问题之前我们先来理解下面这个内存模型"><a href="#1-首先我们在解决这个问题之前我们先来理解下面这个内存模型" class="headerlink" title="1.首先我们在解决这个问题之前我们先来理解下面这个内存模型"></a>1.首先我们在解决这个问题之前我们先来理解下面这个内存模型</h2><p><img src="https://upload-images.jianshu.io/upload_images/22769532-e84b140b86bae53d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><ul><li>解释：基本数据类型存放的直接是值是栈中的数据段，而引用数据类型是存放的是内存地址，将变量赋值给另外一个变量实际上是将原引用的值保存给另外一个变量，另外一个变量就可以修改对象里面的具体内容</li></ul><h2 id="2-有关闭包的图-我也没有完全看懂，跟着抄了一遍"><a href="#2-有关闭包的图-我也没有完全看懂，跟着抄了一遍" class="headerlink" title="2.有关闭包的图(我也没有完全看懂，跟着抄了一遍)"></a>2.有关闭包的图(我也没有完全看懂，跟着抄了一遍)</h2><p><img src="https://upload-images.jianshu.io/upload_images/22769532-145f9625d444ba41.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="闭包.png"></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闭包 </tag>
+            
+            <tag> 函数作用域 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js中this的指向问题</title>
+      <link href="/2020/07/19/fontend/js%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/"/>
+      <url>/2020/07/19/fontend/js%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="js中this指向的问题"><a href="#js中this指向的问题" class="headerlink" title="js中this指向的问题"></a>js中this指向的问题</h1><ul><li>这样吧，我先说结论好了，不想看的小伙伴或者知道原理的可以直接记公式</li><li>函数直接被调用时this则指向window（也就是没有.的情况），函数作为某对象的方法调用时（也就是谁调用了这个函数，this就指向调用这个方法的对象），this指向该对象，而箭头函数没有执行上下文，取决于他就近的外面的一层非箭头函数的函数（箭头函数没有执行上下文，取决于最近的非箭头函数的那个函数）。</li></ul><h1 id="下面我就来进行一一验证"><a href="#下面我就来进行一一验证" class="headerlink" title="下面我就来进行一一验证"></a>下面我就来进行一一验证</h1><h2 id="1-寻找”-”，如果没有找到这个点，那么this就指向window"><a href="#1-寻找”-”，如果没有找到这个点，那么this就指向window" class="headerlink" title="1 寻找”.”，如果没有找到这个点，那么this就指向window"></a>1 寻找”.”，如果没有找到这个点，那么this就指向window</h2><pre><code class="js">var app = {  name: &quot;cxy&quot;}//这个是指向的window，可以自己将代码copy进浏览器里面运行试试console.log(this)</code></pre><ul><li>还有一个就是函数调用的例子<pre><code class="js">function foo(callback){  callback(); //调用其实在这里，你是找不到“.”的}foo(function(){  console.log(this);  //自己去运行代码看this指向谁})//匿名函数里面打印this，没有任何的. 所以指向window，不信可以自己运行一下试试</code></pre><h2 id="2-寻找”-”前面一层的那个对象，如果前面一层是对象或者函数，那this就指向这个函数或对象"><a href="#2-寻找”-”前面一层的那个对象，如果前面一层是对象或者函数，那this就指向这个函数或对象" class="headerlink" title="2 寻找”.”前面一层的那个对象，如果前面一层是对象或者函数，那this就指向这个函数或对象"></a>2 寻找”.”前面一层的那个对象，如果前面一层是对象或者函数，那this就指向这个函数或对象</h2><pre><code class="js">var person = {naem: &quot;cxy&quot;}</code></pre></li></ul><p>person.sayHello = function(){<br>  console.log(this)<br>}</p><p>// 执行<br>person.sayHello()<br>// this 指向的是调用该方法的对象</p><pre><code>## 3 调用语句中有多个.```jsvar person = {name:111}person.height = {heig: 1.8}person.height.hello = function(){  console.log(this)}person.height.hello()// 打印的this指向最近调用方法的对象</code></pre><h2 id="4-通过this引出一个问题就是原型和原型链"><a href="#4-通过this引出一个问题就是原型和原型链" class="headerlink" title="4 通过this引出一个问题就是原型和原型链"></a>4 通过this引出一个问题就是原型和原型链</h2><h3 id="4-1-什么是原型，有待我继续研究一下"><a href="#4-1-什么是原型，有待我继续研究一下" class="headerlink" title="4.1 什么是原型，有待我继续研究一下"></a>4.1 什么是原型，有待我继续研究一下</h3><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> this指向 </tag>
+            
+            <tag> 记忆大法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js中匿名函数的应用场景</title>
       <link href="/2020/07/17/fontend/js%E4%B8%AD%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
       <url>/2020/07/17/fontend/js%E4%B8%AD%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/</url>
