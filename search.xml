@@ -31,6 +31,110 @@
     
     
     <entry>
+      <title>ES6函数优化</title>
+      <link href="/2020/07/27/fontend/ES6%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96/"/>
+      <url>/2020/07/27/fontend/ES6%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="1-什么是函数优化"><a href="#1-什么是函数优化" class="headerlink" title="1 什么是函数优化"></a>1 什么是函数优化</h2><ul><li>在以前编写js代码的时候，函数传参，传递参数的时候设置参数默认值的时候，是下面的这种写法<pre><code class="js">function sayHello(a,b){// 利用逻辑或来进行设置默认值b = b || 1return a+b}</code></pre></li><li>现在的编写js代码的传递参数，用ES6的语法<pre><code class="js">//意思就是如果没有传递进来的b，那么b就等于1function sayHello(a,b = 1){return a+b}</code></pre><h2 id="2-不定参数的用法"><a href="#2-不定参数的用法" class="headerlink" title="2 不定参数的用法"></a>2 不定参数的用法</h2><pre><code class="js">//目的是传递进来任意长度的参数function sayHello(...values){console.log(values)}</code></pre></li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 函数优化 </tag>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ES6语法中的字符串模板</title>
+      <link href="/2020/07/27/fontend/ES6%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2020/07/27/fontend/ES6%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="首先这个是我面试的时候回答错误了的（尴尬得一批）"><a href="#首先这个是我面试的时候回答错误了的（尴尬得一批）" class="headerlink" title="首先这个是我面试的时候回答错误了的（尴尬得一批）"></a>首先这个是我面试的时候回答错误了的（尴尬得一批）</h1><h2 id="1-什么是字符串模板"><a href="#1-什么是字符串模板" class="headerlink" title="1 什么是字符串模板"></a>1 什么是字符串模板</h2><ul><li>字符串模板就是可以用字符串模板不用再次进行拼接字符串的操作了<br>比如我们以前写js<pre><code class="js">//以前的写法let app = &quot;&lt;div&gt;是是是&lt;/div&gt;&quot;+&quot;&lt;div&gt;是是是&lt;/div&gt;&quot;//现在的写法let app = `&lt;div&gt;是是是&lt;/div&gt;&lt;div&gt;是是是&lt;/div&gt;`//这里的引号是反引号，我当时说成了模板字符串（主要是我不知道反引号，我说的是tab键上面的那个键，我靠）</code></pre></li></ul><h2 id="2-模板字符串的其他用法"><a href="#2-模板字符串的其他用法" class="headerlink" title="2 模板字符串的其他用法"></a>2 模板字符串的其他用法</h2><ul><li>可以在字符串里面写表达式<pre><code class="js">function sayHello(){return &quot;我是一个函数&quot;}</code></pre></li></ul><p>//比如下面我写的这个<br>let person = <code>我是${name},今年${age}岁了，我想说${sayHello()}</code></p><pre><code>---</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 字符串模板 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ES6语法-引用类型的解构与赋值</title>
+      <link href="/2020/07/27/fontend/ES6%E8%AF%AD%E6%B3%95-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%A7%A3%E6%9E%84%E4%B8%8E%E8%B5%8B%E5%80%BC/"/>
+      <url>/2020/07/27/fontend/ES6%E8%AF%AD%E6%B3%95-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%A7%A3%E6%9E%84%E4%B8%8E%E8%B5%8B%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-数组的解构方法"><a href="#1-数组的解构方法" class="headerlink" title="1 数组的解构方法"></a>1 数组的解构方法</h2><pre><code class="js">/*以前老的方式*/  var arr = [1,2,3]  //通过以前的方法的话我们是通过下标一个个取到具体的值来进行赋值，像下面这样  var index0 = arr[0]  var index1 = arr[1]  var index2 = arr[2]  console.log(index0,index1,index2)  /*现在新的方式*/  let arr1 = [2,3,5]  let [a,b,c] = arr1//核心代码就在这里，通过直接赋值的方式，就可以取到对应的数组item  console.log(a,b,c)</code></pre><h2 id="对象的解构方法"><a href="#对象的解构方法" class="headerlink" title="对象的解构方法"></a>对象的解构方法</h2><pre><code class="js">//以前的老方式进行对象的输出打印const person = {name:&#39;chenxianyun&#39;,age:18}  // 以前老的方式拿数据  const name = person.name  const password = person.password  console.log(name,password)//现在新的解构对象的方式const person = {name:&#39;chenxianyun&#39;,age:18}  // 以前老的方式拿数据  // const name = person.name  // const password = person.password  // console.log(name,password)  //现在新的解构对象的方式  const {name,age} = person  console.log(name,age)</code></pre><hr><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ES6 </tag>
+            
+            <tag> 解构与赋值 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js中变量提升let关键字</title>
+      <link href="/2020/07/27/fontend/js%E4%B8%AD%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87let%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+      <url>/2020/07/27/fontend/js%E4%B8%AD%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87let%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="1-js中变量提升什么意思"><a href="#1-js中变量提升什么意思" class="headerlink" title="1.js中变量提升什么意思"></a>1.js中变量提升什么意思</h1><ul><li>接下来我将用一个代码来进行解释<pre><code class="js">console.log(a)//这个是打印undifined，因为变量声明了，没有进行赋值，就会报这个错var a = 10   //这里的变量提升到上面去了，所以变量就往上进行提升console.log(b) //这里打印Uncaught ReferenceError: Cannot access &#39;b&#39; before initialization，意思就是变量没有进行初始化let b = 20   //因为let 声明的变量是不存在变量提升的</code></pre></li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 变量提升 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入理解js闭包</title>
       <link href="/2020/07/19/fontend/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E9%97%AD%E5%8C%85/"/>
       <url>/2020/07/19/fontend/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E9%97%AD%E5%8C%85/</url>
