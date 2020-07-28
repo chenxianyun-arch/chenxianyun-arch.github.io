@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>ES6对象新增语法</title>
+      <link href="/2020/07/28/fontend/ES6%E5%AF%B9%E8%B1%A1%E6%96%B0%E5%A2%9E%E8%AF%AD%E6%B3%95/"/>
+      <url>/2020/07/28/fontend/ES6%E5%AF%B9%E8%B1%A1%E6%96%B0%E5%A2%9E%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="1-用来获取对象的数组的方式"><a href="#1-用来获取对象的数组的方式" class="headerlink" title="1 用来获取对象的数组的方式"></a>1 用来获取对象的数组的方式</h2><pre><code class="js">const obj = {    name: &quot;chenxianyun&quot;,    password: &quot;123456&quot;,    faviorties: [&#39;篮球&#39;,&#39;足球&#39;,&#39;乒乓球&#39;]  }  console.log(Object.keys(obj))  console.log(Object.values(obj))  console.log(Object.entries(obj))</code></pre><h2 id="2-实现对象的组合的打印方式"><a href="#2-实现对象的组合的打印方式" class="headerlink" title="2 实现对象的组合的打印方式"></a>2 实现对象的组合的打印方式</h2><pre><code class="js">const obj1 = {}  const obj2 = {number1:4}  const obj3 = {number2:3}  const obj = Object.assign(obj1,obj2,obj3)  console.log(obj)</code></pre><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ES6对象新增方法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ES6箭头函数</title>
+      <link href="/2020/07/28/fontend/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/"/>
+      <url>/2020/07/28/fontend/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="1-以前不用箭头函数的方式进行函数对象的编程"><a href="#1-以前不用箭头函数的方式进行函数对象的编程" class="headerlink" title="1 以前不用箭头函数的方式进行函数对象的编程"></a>1 以前不用箭头函数的方式进行函数对象的编程</h2><pre><code class="js">const obj = {  name: &quot;陈贤云&quot;,  password: &quot;d123455&quot;}function sayName(obj){  console.log(obj.name)}//进行调用,打印名字sayName(obj)</code></pre><h2 id="2-现在有箭头函数就可以这样进行编程"><a href="#2-现在有箭头函数就可以这样进行编程" class="headerlink" title="2 现在有箭头函数就可以这样进行编程"></a>2 现在有箭头函数就可以这样进行编程</h2><pre><code class="js">const obj = {name:&quot;chexianyun&quot;,password:&quot;hahah&quot;}  var sayHello = ({name}) =&gt; {console.log(name)}  sayHello(obj)//进行对象的解构和箭头函数的双利用var name = ({name}) =&gt; {console.log(name)}//这里需要总结一下的就是{name}是传递进来的对象里面的name属性，然后打印这个name属性</code></pre><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 箭头函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js中数据的加和减的区别</title>
       <link href="/2020/07/27/fontend/js%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%A0%E5%92%8C%E5%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
       <url>/2020/07/27/fontend/js%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%A0%E5%92%8C%E5%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
